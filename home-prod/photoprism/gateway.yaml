@@ -36,9 +36,9 @@ spec:
   gateways:
   - photoprism-gateway
   http:
-  - match:
-    - uri:
-        prefix: /
+  #- match:
+  #  - uri:
+  #      prefix: /
   - route:
     - destination:
         host: photoprism-service
