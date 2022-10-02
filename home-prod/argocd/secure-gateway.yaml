@@ -11,6 +11,9 @@ spec:
       number: 443
       name: https
       protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: acme-stg-secret # must be the same as secret
     hosts:
     - "argocd.thingsgreener.com"
 ---
