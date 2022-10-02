@@ -48,7 +48,7 @@ metadata:
   name: argocd-server-dr
   namespace: argocd
 spec:
-  host: argocd-server.argocd.svc.cluster.local
+  host: argocd-server
   trafficPolicy:
     tls:
       mode: DISABLE
