@@ -7817,11 +7817,11 @@ data:
         "meshNetworks": {},
         "mountMtlsCerts": false,
         "multiCluster": {
-          "clusterName": "clusterxx",
+          "clusterName": "k3s",
           "enabled": false
         },
         "namespace": "istio-system",
-        "network": "clusterxx",
+        "network": "k3s-net",
         "omitSidecarInjectorConfigMap": false,
         "oneNamespace": false,
         "operatorManageWebhooks": false,
@@ -9209,7 +9209,7 @@ spec:
         - name: PILOT_ENABLE_ANALYSIS
           value: "false"
         - name: CLUSTER_ID
-          value: clusterxx
+          value: k3s
         image: docker.io/istio/pilot:1.15.1
         name: discovery
         ports:
