@@ -36,12 +36,12 @@ spec:
   gateways:
   - photoprism-gateway
   http:
-  - match:
-    - uri:
-        prefix: /
+  #- match:
+  #  - uri:
+  #      prefix: /
   - route:
     - destination:
         host: photoprism-service
         port:
-          number: 2342
+          number: 80
 ---
