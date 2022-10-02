@@ -7,7 +7,7 @@ metadata:
     app: istio-ingressgateway
     istio: ingressgateway
     release: istio
-    istio.io/rev: 1-15-0
+    istio.io/rev: 1-15-1
     install.operator.istio.io/owning-resource: unknown
     operator.istio.io/component: "IngressGateways"
 ---
@@ -18,7 +18,7 @@ metadata:
     app: istio-ingressgateway
     install.operator.istio.io/owning-resource: unknown
     istio: ingressgateway
-    istio.io/rev: 1-15-0
+    istio.io/rev: 1-15-1
     operator.istio.io/component: IngressGateways
     release: istio
   name: istio-ingressgateway
@@ -44,7 +44,7 @@ spec:
         app: istio-ingressgateway
         install.operator.istio.io/owning-resource: unknown
         istio: ingressgateway
-        istio.io/rev: 1-15-0
+        istio.io/rev: 1-15-1
         operator.istio.io/component: IngressGateways
         sidecar.istio.io/inject: "true"
     spec:
@@ -125,7 +125,7 @@ metadata:
     app: istio-ingressgateway
     istio: ingressgateway
     release: istio
-    istio.io/rev: 1-15-0
+    istio.io/rev: 1-15-1
     install.operator.istio.io/owning-resource: unknown
     operator.istio.io/component: "IngressGateways"
 spec:
@@ -142,7 +142,7 @@ metadata:
   namespace: istio-ingress
   labels:
     release: istio
-    istio.io/rev: 1-15-0
+    istio.io/rev: 1-15-1
     install.operator.istio.io/owning-resource: unknown
     operator.istio.io/component: "IngressGateways"
 rules:
@@ -157,7 +157,7 @@ metadata:
   namespace: istio-ingress
   labels:
     release: istio
-    istio.io/rev: 1-15-0
+    istio.io/rev: 1-15-1
     install.operator.istio.io/owning-resource: unknown
     operator.istio.io/component: "IngressGateways"
 roleRef:
@@ -175,7 +175,7 @@ metadata:
     app: istio-ingressgateway
     install.operator.istio.io/owning-resource: unknown
     istio: ingressgateway
-    istio.io/rev: 1-15-0
+    istio.io/rev: 1-15-1
     operator.istio.io/component: IngressGateways
     release: istio
   name: istio-ingressgateway
@@ -203,7 +203,7 @@ metadata:
     app: istio-ingressgateway
     install.operator.istio.io/owning-resource: unknown
     istio: ingressgateway
-    istio.io/rev: 1-15-0
+    istio.io/rev: 1-15-1
     operator.istio.io/component: IngressGateways
     release: istio
   name: istio-ingressgateway
