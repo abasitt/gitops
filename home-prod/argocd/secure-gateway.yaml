@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: argocd-gateway-secure
+  name: argocd-gateway
   namespace: argocd
 spec:
   selector:
@@ -16,17 +16,25 @@ spec:
       credentialName: acme-stg-secret # must be the same as secret
     hosts:
     - "argocd.thingsgreener.com"
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "argocd.thingsgreener.com"
+    tls:
+      httpsRedirect: true
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: argocd-vs-secure
+  name: argocd-vs
   namespace: argocd
 spec:
   hosts:
   - "argocd.thingsgreener.com"
   gateways:
-  - argocd-gateway-secure
+  - argocd-gateway
   http:
   - route:
     - destination:
