@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-cert-stg
+  namespace: istio-ingress
+spec:
+  secretName: argocd-staging
+  dnsNames:
+  - argocd.thingsgreener.com
+  issuerRef:
+    name: letsencrypt-stg
+    # We can reference ClusterIssuers by changing the kind here.
+    # The default value is Issuer (i.e. a locally namespaced Issuer)
+    kind: ClusterIssuer
+    group: cert-manager.io
