@@ -7,21 +7,21 @@ spec:
   selector:
     istio: ingressgateway
   servers:
-  #- port:
-  #    number: 443
-  #    name: https
-  #    protocol: HTTPS
-  #  tls:
-  #    mode: SIMPLE
-  #    credentialName: acme-stg-secret # must be the same as secret
-  #  hosts:
-  #  - "photos.thingsgreener.com"
   - port:
-      number: 80
-      name: http
-      protocol: HTTP
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: photoprism # must be the same as secret
     hosts:
     - "photos.thingsgreener.com"
+  #- port:
+  #    number: 80
+  #    name: http
+  #    protocol: HTTP
+  #  hosts:
+  #  - "photos.thingsgreener.com"
   #  tls:
   #    httpsRedirect: true
 ---
