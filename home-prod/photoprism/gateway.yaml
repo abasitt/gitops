@@ -16,12 +16,12 @@ spec:
       credentialName: photoprism # must be the same as secret
     hosts:
     - "photos.thingsgreener.com"
-  #- port:
-  #    number: 80
-  #    name: http
-  #    protocol: HTTP
-  #  hosts:
-  #  - "photos.thingsgreener.com"
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "photos.thingsgreener.com"
   #  tls:
   #    httpsRedirect: true
 ---
@@ -36,9 +36,17 @@ spec:
   gateways:
   - photoprism-gateway
   http:
-  #- match:
-  #  - uri:
-  #      prefix: /
+  - match:
+      - scheme:
+          exact: http
+        uri:
+          # This is not a perfect regex but RE2 does not allow negations so we have to hack a it
+          # Note: this pattern will redirect to HTTPS all URIs NOT starting with `/.well-` (which should be the best case since your business URIs are unlikely to start with that)
+          # this to let pass requests to renew certs like `/.well-known/acme-challenge/...`
+          regex: "^/(([^\\.].*)|(\\.[^w].*)|(\\.w[^e].*)|(\\.we[^l].*)|(\\.wel[^l].*)|(\\.well[^\\-].*))"
+    redirect:
+      scheme: https
+      redirectCode: 302 # 302 to not mess with risky permanent redirections since a workaround
   - route:
     - destination:
         host: photoprism-service
