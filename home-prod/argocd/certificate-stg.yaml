@@ -3,6 +3,8 @@ kind: Certificate
 metadata:
   name: argocd-cert-stg
   namespace: istio-ingress
+  annotations:
+    cert-manager.io/issue-temporary-certificate: "true"
 spec:
   secretName: argocd-stg
   dnsNames:
