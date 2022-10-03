@@ -13,7 +13,7 @@ spec:
       protocol: HTTPS
     tls:
       mode: SIMPLE
-      credentialName: acme-stg-secret # must be the same as secret
+      credentialName: argocd # must be the same as secret
     hosts:
     - "argocd.thingsgreener.com"
   - port:
