@@ -5,11 +5,11 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: homeassistant
+    namespace: home-assistant
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: home-prod/homeassistant
+    path: home-prod/home-assistant
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: HEAD
   syncPolicy:
