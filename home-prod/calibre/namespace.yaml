@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
     name: calibre
     labels:
-        app: calibre
-        type: third-party
-        facing: internal
+      app: calibre
+      type: third-party
+      facing: internal
+      istio-discovery: enabled
