@@ -6,7 +6,6 @@ metadata:
 spec:
   selector:
     istio: ingressgateway
-    istio2: ingress
   servers:
   - port:
       number: 443
@@ -16,7 +15,7 @@ spec:
       mode: SIMPLE
       credentialName: wordpress # must be the same as secret
     hosts:
-    - "blog.thingsgreener.com"
+    - "blog1.thingsgreener.com"
   - port:
       number: 80
       name: http
