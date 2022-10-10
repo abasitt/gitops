@@ -15,7 +15,7 @@ spec:
       mode: SIMPLE
       credentialName: wordpress # must be the same as secret
     hosts:
-    - "blog1.thingsgreener.com"
+    - "blog.thingsgreener.com"
   - port:
       number: 80
       name: http
