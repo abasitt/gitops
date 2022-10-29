@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1beta1
+kind: WorkloadEntry
+metadata:
+  name: ha-svc
+  namespace: home-assistant
+spec:
+  # use of the service account indicates that the workload has a
+  # sidecar proxy bootstrapped with this service account. Pods with
+  # sidecars will automatically communicate with the workload using
+  # istio mutual TLS.
+  #serviceAccount: details-legacy
+  address: 192.168.20.5
+  labels:
+    app: home-assistant
