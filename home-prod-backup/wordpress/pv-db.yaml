@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wordpress-db-pv
+  namespace: wordpress
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+  capacity:
+    storage: 2Gi
+  storageClassName: manual
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /mnt/dvdsk/k3s/storage/pvc-e3b8c771-0ecb-459c-aafc-d98ca5f3ec10_wordpress_wordpress-db-pvc
