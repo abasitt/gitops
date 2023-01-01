@@ -1,0 +1,17 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: httpbin
+  namespace: istio-ingress
+spec:
+  selector:
+    matchLabels:
+      istio: ingressgateway 
+  action: DENY
+  rules:
+  - from:
+    - source:
+        notIpBlocks: ["192.168.10.0/24"]
+    to:
+    - operation:
+        hosts: ["photosbat.thingsgreener.com"] 
