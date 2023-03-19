@@ -1,7 +1,7 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: photosbat
+  name: photosbat-authz
   namespace: istio-ingress
 spec:
   selector:
@@ -11,7 +11,7 @@ spec:
   rules:
   - from:
     - source:
-        notIpBlocks: ["192.168.10.0/24"]
+        notIpBlocks: ["192.168.10.0/24","10.0.0.0/8"]
     to:
     - operation:
         hosts: ["photosbat.thingsgreener.com"] 
