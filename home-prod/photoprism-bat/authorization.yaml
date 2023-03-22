@@ -11,7 +11,7 @@ spec:
   rules:
   - from:
     - source:
-        notIpBlocks: ["192.168.10.0/24","10.0.0.0/8"]
+        notIpBlocks: ["192.168.10.0/24"]
     to:
     - operation:
         hosts: ["photosbat.thingsgreener.com"] 
