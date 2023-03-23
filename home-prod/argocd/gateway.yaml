@@ -36,7 +36,8 @@ spec:
   gateways:
   - argocd-gateway
   http:
-  - match:
+  - name: "argocd-routes"
+    match:
       - scheme:
           exact: http
         uri:
