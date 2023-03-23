@@ -36,7 +36,8 @@ spec:
   gateways:
   - ha-gateway
   http:
-  - match:
+  - name: "HA-routes"
+    match:
       - scheme:
           exact: http
         uri:

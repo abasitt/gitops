@@ -36,7 +36,8 @@ spec:
   gateways:
   - wordpress-gateway
   http:
-  - match:
+  - name: "wordpress-routes"
+    match:
       - scheme:
           exact: http
         uri:

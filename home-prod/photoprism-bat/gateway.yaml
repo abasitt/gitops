@@ -36,7 +36,8 @@ spec:
   gateways:
   - photoprism-bat-gateway
   http:
-  - match:
+  - name: "photoprismbat-routes"
+    match:
       - scheme:
           exact: http
         uri:

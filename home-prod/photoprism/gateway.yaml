@@ -36,7 +36,8 @@ spec:
   gateways:
   - photoprism-gateway
   http:
-  - match:
+  - name: "photoprism-routes"
+    match:
       - scheme:
           exact: http
         uri:

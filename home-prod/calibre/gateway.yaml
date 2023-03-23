@@ -36,7 +36,8 @@ spec:
   gateways:
   - calibre-gateway
   http:
-  - match:
+  - name: "calibre-routes"
+    match:
       - scheme:
           exact: http
         uri:
