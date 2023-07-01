@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: ConfigMap
+data:
+  resource.exclusions: |
+     - apiGroups:
+         - cilium.io
+       kinds:
+         - CiliumIdentity
+       clusters:
+         - "*"
+  server.insecure: "true"
+  kustomize.buildOptions: --enable-alpha-plugins --enable-helm
+metadata:
+  name: argocd-cm
+  namespace: argocd
