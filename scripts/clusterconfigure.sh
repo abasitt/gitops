@@ -63,7 +63,7 @@ if [[ "$argocd_input" == "y" ]]; then
     #create a namespace
     kubectl apply -f "${PROJECT_DIR}/scripts/bootstrap/argocd/ns.yaml"
     #install argocd
-    kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.7.6/manifests/install.yaml
+    kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.7.6/manifests/install.yaml -n argocd
     # unecrypt and apply secret in a cluster
     sops --decrypt "${PROJECT_DIR}/scripts/bootstrap/argocd/vars/cluster-secrets.sops.yaml" | kubectl apply -f - 
 else
