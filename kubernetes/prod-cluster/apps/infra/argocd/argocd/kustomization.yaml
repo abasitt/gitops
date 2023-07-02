@@ -4,8 +4,6 @@ namespace: argocd
 
 resources:
 -  https://raw.githubusercontent.com/argoproj/argo-cd/v2.7.6/manifests/install.yaml
-#- argocd-app.yaml
 
 patchesStrategicMerge:
 - argocd-cm-patch.yaml
-#- argocd-dep-patch.yaml
