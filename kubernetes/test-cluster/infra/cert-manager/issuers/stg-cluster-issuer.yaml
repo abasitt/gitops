@@ -7,7 +7,10 @@ spec:
     # You must replace this email address with your own.
     # Let's Encrypt will use this to contact you about expiring
     # certificates, and issues related to your account.
-    email: "${SECRET_CLOUDFLARE_EMAIL}"
+    email:
+      key: SECRET_CLOUDFLARE_EMAIL
+      # This is the resource that contains the key
+      from: Secret/cluster-secrets
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       # Secret resource that will be used to store the account's private key.
