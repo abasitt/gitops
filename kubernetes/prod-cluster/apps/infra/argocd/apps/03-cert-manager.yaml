@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: kubernetes/prod-cluster/apps/infra/cert-manager/cert-manager
+    path: kubernetes/prod-cluster/apps/infra/cert-manager
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: folder-restructure
   syncPolicy:
@@ -17,17 +17,18 @@ spec:
     syncOptions:
     - CreateNamespace=true
 ---
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: cert-manager-issuers
-  namespace: argocd
-spec:
-  project: default
-  source:
-    path: kubernetes/prod-cluster/apps/infra/cert-manager/issuers
-    repoURL: https://github.com/abasitt/gitops.git
-    targetRevision: folder-restructure
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: cert-manager
+#apiVersion: argoproj.io/v1alpha1
+#kind: Application
+#metadata:
+#  name: cert-manager-issuers
+#  namespace: argocd
+#spec:
+#  project: default
+#  source:
+#    path: kubernetes/prod-cluster/apps/infra/cert-manager/issuers
+#    repoURL: https://github.com/abasitt/gitops.git
+#    targetRevision: folder-restructure
+#  destination:
+#    server: https://kubernetes.default.svc
+#    namespace: cert-manager
+#
