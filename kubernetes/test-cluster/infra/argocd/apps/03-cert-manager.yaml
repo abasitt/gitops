@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: kubernetes/prod-cluster/apps/infra/cert-manager/cert-manager
+    path: kubernetes/test-cluster/apps/infra/cert-manager/cert-manager
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: folder-restructure
   syncPolicy:
