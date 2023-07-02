@@ -3,5 +3,5 @@ kind: Kustomization
 
 resources:
   - cert-manager
-  - issuer/stg-cluster-issuer.yaml
+  - issuers/stg-cluster-issuer.yaml
 #  - certificate-test.yaml
