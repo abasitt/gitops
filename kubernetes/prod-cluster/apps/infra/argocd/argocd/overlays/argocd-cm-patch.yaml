@@ -10,6 +10,7 @@ data:
        clusters:
          - "*"
   server.insecure: "true"
+  kustomize.buildOptions: --enable-alpha-plugins --enable-helm
 metadata:
   labels:
     app.kubernetes.io/name: argocd-cm
