@@ -8,4 +8,4 @@ resources:
 
 patchesStrategicMerge:
 - argocd-cm-patch.yaml
-- argocd-dep-patch.yaml
+#- argocd-dep-patch.yaml
