@@ -14,9 +14,9 @@ spec:
     kind: ValidatingWebhookConfiguration
   project: default
   source:
-    path: home-prod/istiod
+    path: kubernetes/prod-cluster/apps/infra/istio
     repoURL: https://github.com/abasitt/gitops.git
-    targetRevision: HEAD
+    targetRevision: folder-restructure
   syncPolicy:
     syncOptions:
     - CreateNamespace=true

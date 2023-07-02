@@ -4,3 +4,4 @@ namespace: argocd
 
 resources:
 - argocd
+- apps/01-istio.yaml
