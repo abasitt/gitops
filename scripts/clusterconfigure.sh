@@ -63,7 +63,7 @@ if [[ "$argocd_input" == "y" ]]; then
     #create a namespace
     kubectl apply -f "${PROJECT_DIR}/scripts/bootstrap/argocd/ns.yaml"
     #install argocd
-    kubectl kustomize "${PROJECT_DIR}/kubernetes/prod-cluster/apps/infra/argocd/argocd" | kubectl apply -f -
+    kubectl kustomize "${PROJECT_DIR}/kubernetes/prod-cluster/infra/argocd/argocd" | kubectl apply -f -
     #check the status of all pods in argocd ns
     # Wait for all pods in the namespace to be ready
     kubectl wait --for=condition=ready --all pod -n argocd

@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/abasitt/gitops.git
-    path: kubernetes/prod-cluster/apps/infra/argocd
+    path: kubernetes/prod-cluster/infra/argocd
     targetRevision: folder-restructure
   destination:
     server: https://kubernetes.default.svc
