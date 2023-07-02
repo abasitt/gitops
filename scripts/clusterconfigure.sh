@@ -63,7 +63,22 @@ if [[ "$argocd_input" == "y" ]]; then
     #create a namespace
     kubectl apply -f "${PROJECT_DIR}/scripts/bootstrap/argocd/ns.yaml"
     #install argocd
-    kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.7.6/manifests/install.yaml -n argocd
+    kubectl kustomize "${PROJECT_DIR}/kubernetes/prod-cluster/apps/infra/argocd/argocd" | kubectl apply -f -
+    #check the status of all pods in argocd ns
+    # Wait for all pods in the namespace to be ready
+    kubectl wait --for=condition=ready --all pod -n argocd
+    
+    # Check the exit code of the previous command
+    if [ $? -eq 0 ]; then
+      # If the exit code is 0, it means all pods are ready
+      echo "All pods in argocd are ready, applying argocd-self managed manifest ..."
+      kubectl apply -f "${PROJECT_DIR}/scripts/bootstrap/argocd/app.yaml"
+    else
+      # If the exit code is not 0, it means some pods are not ready
+      echo "Some pods in argocd are not ready, exiting argocd-self managed"
+      # Exit the script with an error code
+      exit 1
+    fi
     # unecrypt and apply secret in a cluster
     sops --decrypt "${PROJECT_DIR}/scripts/bootstrap/argocd/vars/cluster-secrets.sops.yaml" | kubectl apply -f - 
 else

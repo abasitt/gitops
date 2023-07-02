@@ -1,4 +1,5 @@
 # This is the patch file that matches the deployment by name and adds the command
+# seems like not required with new argocd so i will remove at one point
 apiVersion: apps/v1
 kind: Deployment
 metadata:
