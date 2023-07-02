@@ -1,13 +1,13 @@
 # This is the patch file that matches the deployment by name and adds the command
 # seems like not required with new argocd so i will remove at one point
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: argocd-server # This is the name of the deployment you want to patch
-spec:
-  template:
-    spec:
-      containers:
-      - command: # This is the command you want to add
-        - argocd-server
-        - --insecue
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: argocd-server # This is the name of the deployment you want to patch
+#spec:
+#  template:
+#    spec:
+#      containers:
+#      - command: # This is the command you want to add
+#        - argocd-server
+#        - --insecue
