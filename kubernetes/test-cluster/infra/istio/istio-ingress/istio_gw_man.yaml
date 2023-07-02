@@ -226,4 +226,5 @@ spec:
     app: istio-ingressgateway
     istio: ingressgateway
   type: LoadBalancer
+  loadBalancerClass: metallb
 ---
