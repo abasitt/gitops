@@ -6,4 +6,5 @@ resources:
 #- argocd-app.yaml
 
 patchesStrategicMerge:
-- argocd-cm.yaml
+- argocd-cm-patch.yaml
+- argocd-dep-patch.yaml

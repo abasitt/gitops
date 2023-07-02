@@ -1,0 +1,13 @@
+# This is the patch file that matches the deployment by name and adds the command
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-server # This is the name of the deployment you want to patch
+spec:
+  template:
+    spec:
+      containers:
+      - name: argocd-server # This is the name of the container you want to patch
+        command: # This is the command you want to add
+        - argocd-server
+        - --insecure
