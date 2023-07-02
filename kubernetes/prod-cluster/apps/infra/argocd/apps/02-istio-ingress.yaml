@@ -9,9 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: home-prod/istioingress/
+    path: kubernetes/prod-cluster/apps/infra/istio/istio-ingress
     repoURL: https://github.com/abasitt/gitops.git
-    targetRevision: HEAD
+    targetRevision: folder-restructure
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
