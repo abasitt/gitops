@@ -3,6 +3,6 @@ kind: Namespace
 metadata:
   labels:
     istio-discovery: enabled
-    istio.io/rev: prod
+    istio.io/rev: 1-15-6
     kubernetes.io/metadata.name: istio-ingress
   name: istio-ingress
