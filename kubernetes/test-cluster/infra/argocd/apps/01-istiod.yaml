@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istiod
+  namespace: argocd
+spec:
+  destination:
+    namespace: istio-system
+    server: https://kubernetes.default.svc
+  ignoreDifferences:
+  - group: admissionregistration.k8s.io
+    jqPathExpressions:
+    - .webhooks[]?.failurePolicy
+    kind: ValidatingWebhookConfiguration
+  project: default
+  source:
+    path: kubernetes/prod-cluster/apps/infra/istio/istiod
+    repoURL: https://github.com/abasitt/gitops.git
+    targetRevision: folder-restructure
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    - RespectIgnoreDifferences=true
