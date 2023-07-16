@@ -6,6 +6,9 @@ export PROJECT_DIR=$(git rev-parse --show-toplevel)
 # shellcheck disable=SC2155
 export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
 
+# cilium install servicehost IP address
+k8s_service_host_ip="192.168.10.121"
+
 # Prompt user for SOPS encryption input
 read -rp "Perform SOPS encryption? (y/n): " sops_input
 if [[ "$sops_input" == "y" ]]; then
@@ -45,7 +48,7 @@ if [[ "$cni_input" == "y" ]]; then
         --set containerRuntime.integration=containerd \
         --set containerRuntime.socketPath=/var/run/k3s/containerd/containerd.sock \
         --set hubble.enabled=false \
-        --set k8sServiceHost="192.168.40.18" \
+        --set k8sServiceHost=$k8s_service_host_ip \
         --set k8sServicePort=6443 \
         --set kubeProxyReplacement=strict \
         --set operator.replicas=1
