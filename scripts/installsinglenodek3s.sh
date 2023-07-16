@@ -3,7 +3,7 @@
 echo "Please choose an option:"
 echo "1. Install k3s"
 echo "2. Uninstall k3s"
-read -p "Enter your choice (1 or 2): " choice
+read -rp "Enter your choice (1 or 2): " choice
 
 if [[ $choice == "1" ]]; then
     echo "Starting k3s installation..."
