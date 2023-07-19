@@ -16,4 +16,4 @@ helmCharts:
     valuesFile: values.yaml
 
 patchesStrategicMerge:
-- overlays/argocd-cm-patch.yaml
+- overlays/service-patch.yaml
