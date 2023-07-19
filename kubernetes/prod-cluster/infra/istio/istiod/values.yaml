@@ -1,8 +1,8 @@
 global:
   meshID: smesh
   multiCluster:
-    clusterName: ${CLUSTER_NAME}
-  network: ${CLUSTER_NAME}-net
+    clusterName: k3sngnode1
+  network: k3ssngnode1-net
   #tracer:
   #  zipkin:
   #    address: localhost:9411
