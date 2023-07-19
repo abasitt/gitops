@@ -6,8 +6,8 @@ resources:
   - ./namespace.yaml
 
 helmCharts:
-  - name: istio
-    releaseName: istio
+  - name: base
+    releaseName: istio-base
     namespace: istio-system
     repo: https://istio-release.storage.googleapis.com/charts
     version: 1.18.1
