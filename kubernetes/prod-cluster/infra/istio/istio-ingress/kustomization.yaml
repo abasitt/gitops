@@ -14,3 +14,6 @@ helmCharts:
     repo: https://istio-release.storage.googleapis.com/charts
     version: 1.18.1
     valuesFile: values.yaml
+
+patchesStrategicMerge:
+- overlays/argocd-cm-patch.yaml
