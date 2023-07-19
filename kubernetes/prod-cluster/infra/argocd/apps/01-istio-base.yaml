@@ -18,6 +18,7 @@ spec:
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: folder-restructure
   syncPolicy:
+    automated: {}
     syncOptions:
     - CreateNamespace=true
     - RespectIgnoreDifferences=true
