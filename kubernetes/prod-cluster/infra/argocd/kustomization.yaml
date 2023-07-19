@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: argocd
 
 resources:
+- apps/01-istio-base
 - apps/01-istiod.yaml
 - apps/02-istio-ingress.yaml
 - apps/03-cert-manager.yaml
