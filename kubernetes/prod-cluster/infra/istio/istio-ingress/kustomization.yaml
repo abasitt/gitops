@@ -15,5 +15,5 @@ helmCharts:
     version: 1.18.1
     valuesFile: values.yaml
 
-patches:
+patchesStrategicMerge:
 - overlays/service-patch.yaml
