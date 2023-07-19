@@ -7,7 +7,7 @@ export PROJECT_DIR=$(git rev-parse --show-toplevel)
 export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
 
 # cilium install servicehost IP address
-k8s_service_host_ip="192.168.10.121"
+k8s_service_host_ip="192.168.30.121"
 
 # Prompt user for SOPS encryption input
 read -rp "Perform SOPS encryption? (y/n): " sops_input
