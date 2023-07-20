@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: calibre
-  namespace: calibre
+  namespace: media
   labels:
     app: calibre
     version: latest

@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
   name: calibre-gateway
-  namespace: calibre
+  namespace: media
 spec:
   selector:
     istio: ingressgateway
@@ -29,7 +29,7 @@ apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: calibre-vs
-  namespace: calibre
+  namespace: media
 spec:
   hosts:
   - "books.thingsgreener.com"
