@@ -9,8 +9,8 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: home-prod/calibre
+    path: kubernetes/prod-cluster/apps/media/calibre
     repoURL: https://github.com/abasitt/gitops.git
-    targetRevision: HEAD
+    targetRevision: folder-restructure
   syncPolicy:
     automated: {}
