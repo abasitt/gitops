@@ -8,4 +8,5 @@ resources:
 - apps/02-istio-ingress.yaml
 - apps/03-cert-manager.yaml
 - apps/01-metallb.yaml
+- apps/04-media.yaml
 - argocd
