@@ -4,4 +4,4 @@ namespace: media
 
 resources:
   - ./namespace.yaml
-  - ./apps/calibre-argo.yaml
+  - apps/calibre-argo.yaml
