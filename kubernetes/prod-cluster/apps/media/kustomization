@@ -3,5 +3,5 @@ kind: Kustomization
 namespace: media
 
 resources:
-  - ./namespace.yaml
-  - apps/calibre-argo.yaml
+- ./namespace.yaml
+- apps/calibre-argo.yaml
