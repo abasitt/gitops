@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -6,9 +7,10 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-      storage: 2Gi
+    storage: 2Gi
   accessModes:
-      - ReadWriteOnce
+    - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  hostPath:
-      path: /mnt/dsk4tb1/k3s/calibre/books
+  nfs:
+    server: nfs.hv01.home.arpa
+    path: /zp_sda_sdb/k8s/data/media/books

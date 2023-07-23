@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: media
 
 resources:
-  - ../namespace.yaml
   - pv-book.yaml
   - pvc-books.yaml
   - pvc-config.yaml  
