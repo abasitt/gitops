@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: photoprism-service
-  namespace: photoprism
+  namespace: media
 spec:
   selector:
     app: photoprism

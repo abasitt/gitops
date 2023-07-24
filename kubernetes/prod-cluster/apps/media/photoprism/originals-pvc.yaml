@@ -3,7 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: photoprism-originals-pvc
-  namespace: photoprism
+  namespace: media
 spec:
   accessModes:
     - ReadOnlyMany
