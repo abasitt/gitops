@@ -11,6 +11,6 @@ spec:
   source:
     path: kubernetes/prod-cluster/apps/media/wordpress
     repoURL: https://github.com/abasitt/gitops.git
-    targetRevision: folder-restructure
+    targetRevision: HEAD
   syncPolicy:
     automated: {}

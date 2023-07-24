@@ -16,7 +16,7 @@ spec:
   source:
     path: kubernetes/prod-cluster/infra/istio/istiod
     repoURL: https://github.com/abasitt/gitops.git
-    targetRevision: folder-restructure
+    targetRevision: HEAD
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
