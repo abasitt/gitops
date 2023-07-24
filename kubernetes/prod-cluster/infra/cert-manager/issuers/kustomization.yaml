@@ -5,4 +5,3 @@ kind: Kustomization
 resources:
   - ./stg-cluster-issuer.yaml
   - ./prd-cluster-issuer.yaml
-  - ./certificate-test.yaml
