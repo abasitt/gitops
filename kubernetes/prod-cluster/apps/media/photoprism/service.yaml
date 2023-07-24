@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: photoprism-service
+  namespace: photoprism
+spec:
+  selector:
+    app: photoprism
+  ports:
+    - name: http-80
+      port: 80
+      targetPort: 2342
+    - name: http-2342
+      port: 2342
+      targetPort: 2342
+  type: ClusterIP
