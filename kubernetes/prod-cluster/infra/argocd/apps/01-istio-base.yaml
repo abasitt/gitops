@@ -16,7 +16,7 @@ spec:
   source:
     path: kubernetes/prod-cluster/infra/istio/istio-base
     repoURL: https://github.com/abasitt/gitops.git
-    targetRevision: folder-restructure
+    targetRevision: HEAD
   syncPolicy:
     automated: {}
     syncOptions:

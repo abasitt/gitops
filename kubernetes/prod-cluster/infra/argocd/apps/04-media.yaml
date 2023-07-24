@@ -11,7 +11,7 @@ spec:
   source:
     path: kubernetes/prod-cluster/apps/media/apps
     repoURL: https://github.com/abasitt/gitops.git
-    targetRevision: folder-restructure
+    targetRevision: HEAD
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
