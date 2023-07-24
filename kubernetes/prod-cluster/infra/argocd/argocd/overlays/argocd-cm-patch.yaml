@@ -9,7 +9,6 @@ data:
          - CiliumIdentity
        clusters:
          - "*"
-  server.insecure: "true"
   kustomize.buildOptions: --enable-alpha-plugins --enable-helm
 metadata:
   labels:
