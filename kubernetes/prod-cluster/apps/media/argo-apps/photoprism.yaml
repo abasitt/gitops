@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: calibre
+  namespace: argocd
+spec:
+  destination:
+    namespace: media
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: kubernetes/prod-cluster/apps/media/photoprism
+    repoURL: https://github.com/abasitt/gitops.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
