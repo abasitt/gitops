@@ -9,4 +9,5 @@ resources:
 - apps/03-cert-manager.yaml
 - apps/01-metallb.yaml
 - apps/04-media.yaml
+- apps/05-homeassistant.yaml
 - argocd
