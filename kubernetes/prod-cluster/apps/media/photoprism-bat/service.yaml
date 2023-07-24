@@ -6,7 +6,7 @@ metadata:
   namespace: media
 spec:
   selector:
-    app: photoprism
+    app: photoprism-bat
   ports:
     - name: http-80
       port: 80
