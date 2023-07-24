@@ -29,12 +29,12 @@ spec:
         - name: WORDPRESS_DB_USER
           valueFrom:
             secretKeyRef:
-              name: db-credentials
+              name: wp-db-credentials
               key: user
         - name: WORDPRESS_DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: db-credentials
+              name: wp-db-credentials
               key: password
         ports:
         - containerPort: 80
