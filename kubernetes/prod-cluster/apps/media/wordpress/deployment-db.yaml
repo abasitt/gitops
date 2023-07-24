@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: mariadb
-          image: mariadb:10.8
+          image: mariadb:10.11.4
           env:
             - name: MYSQL_DATABASE
               value: wordpress
