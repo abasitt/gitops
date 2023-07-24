@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
-  namespace: wordpress
+  namespace: media
   labels:
     app: wordpress
 spec:
@@ -42,6 +42,13 @@ spec:
         volumeMounts:
         - name: wordpress-persistent-storage
           mountPath: /var/www/html
+        resources:
+            requests:
+              memory: '32Mi'
+              cpu: '1m'
+            limits:
+              memory: '256Mi'
+              cpu: '100m'    
       volumes:
       - name: wordpress-persistent-storage
         persistentVolumeClaim:

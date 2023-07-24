@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mariadb
-  namespace: wordpress
+  namespace: media
 spec:
   replicas: 1
   selector:
@@ -50,6 +50,13 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: wordpress-db-pvc
+          resources:
+            requests:
+              memory: '32Mi'
+              cpu: '1m'
+            limits:
+              memory: '256Mi'
+              cpu: '100m'
       restartPolicy: Always
       volumes:
         - name: wordpress-db-pvc
