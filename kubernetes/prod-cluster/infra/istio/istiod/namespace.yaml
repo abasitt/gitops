@@ -3,4 +3,5 @@ kind: Namespace
 metadata:
   labels:
     kubernetes.io/metadata.name: istio-system
+    istio-discovery: enabled
   name: istio-system
