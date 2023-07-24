@@ -5,7 +5,8 @@ namespace: argocd
 resources:
 - https://raw.githubusercontent.com/argoproj/argo-cd/v2.7.6/manifests/install.yaml
 - ./namespace.yaml
-- networking
+- networking/certificate-prd.yaml
+#- networking
 
 patchesStrategicMerge:
 - overlays/argocd-cm-patch.yaml
