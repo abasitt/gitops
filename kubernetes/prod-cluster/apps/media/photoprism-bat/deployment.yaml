@@ -75,7 +75,7 @@ spec:
               value: "4"
           envFrom:
           - secretRef:
-              name: photoprism-secrets
+              name: photoprismbat-secrets
               optional: false
           ports:
             - containerPort: 2342
