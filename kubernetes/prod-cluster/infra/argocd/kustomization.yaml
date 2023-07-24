@@ -8,3 +8,4 @@ resources:
 - apps/04-media.yaml
 - apps/05-homeassistant.yaml
 - argocd
+- apps/06-argocd-networking.yaml
