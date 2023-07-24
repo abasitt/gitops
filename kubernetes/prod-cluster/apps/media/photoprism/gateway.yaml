@@ -50,7 +50,7 @@ spec:
       redirectCode: 302 # 302 to not mess with risky permanent redirections since a workaround
   - route:
     - destination:
-        host: photoprism-service
+        host: photoprism
         port:
           number: 80
 ---
