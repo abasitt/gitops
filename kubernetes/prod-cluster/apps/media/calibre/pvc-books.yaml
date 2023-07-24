@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: calibre-books
+  namespace: media
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: manual
+  volumeName: calibre-books
+  resources:
+      requests:
+          storage: 2Gi

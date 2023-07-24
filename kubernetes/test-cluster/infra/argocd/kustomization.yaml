@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: argocd
+
+resources:
+- apps/01-metallb.yaml
+- apps/02-istiod.yaml
+- apps/03-istio-ingress.yaml
+- apps/04-cert-manager.yaml
+- argocd

@@ -1,0 +1,56 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: calibre-gateway
+  namespace: media
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: calibre # must be the same as secret
+    hosts:
+    - "books.thingsgreener.com"
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "books.thingsgreener.com"
+  #  tls:
+  #    httpsRedirect: true
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: calibre-vs
+  namespace: media
+spec:
+  hosts:
+  - "books.thingsgreener.com"
+  gateways:
+  - calibre-gateway
+  http:
+  - name: "calibre-routes"
+    match:
+      - scheme:
+          exact: http
+        uri:
+          # This is not a perfect regex but RE2 does not allow negations so we have to hack a it
+          # Note: this pattern will redirect to HTTPS all URIs NOT starting with `/.well-` (which should be the best case since your business URIs are unlikely to start with that)
+          # this to let pass requests to renew certs like `/.well-known/acme-challenge/...`
+          regex: "^/(([^\\.].*)|(\\.[^w].*)|(\\.w[^e].*)|(\\.we[^l].*)|(\\.wel[^l].*)|(\\.well[^\\-].*))"
+    redirect:
+      scheme: https
+      redirectCode: 302 # 302 to not mess with risky permanent redirections since a workaround
+  - route:
+    - destination:
+        host: calibre
+        port:
+          number: 80
+---

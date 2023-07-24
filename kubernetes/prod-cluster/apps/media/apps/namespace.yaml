@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: media
+    labels:
+      type: third-party
+      facing: internal
+      istio-discovery: enabled
