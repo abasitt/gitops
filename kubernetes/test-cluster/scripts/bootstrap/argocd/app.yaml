@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/abasitt/gitops.git
     path: kubernetes/test-cluster/infra/argocd
-    targetRevision: folder-restructure
+    targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
