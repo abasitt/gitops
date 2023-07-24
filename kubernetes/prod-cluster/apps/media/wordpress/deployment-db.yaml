@@ -24,17 +24,17 @@ spec:
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: db-credentials
+                  name: wp-db-credentials
                   key: password
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: db-credentials
+                  name: wp-db-credentials
                   key: password
             - name: MYSQL_USER
               valueFrom:
                 secretKeyRef:
-                  name: db-credentials
+                  name: wp-db-credentials
                   key: user
           args:
             - mysqld
