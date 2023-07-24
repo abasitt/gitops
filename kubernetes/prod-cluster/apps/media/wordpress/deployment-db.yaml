@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mariadb
+  name: wp-mariadb
   namespace: media
 spec:
   replicas: 1
@@ -13,10 +13,10 @@ spec:
   template:
     metadata:
       labels:
-        app: mariadb
+        app: wp-mariadb
     spec:
       containers:
-        - name: mariadb
+        - name: wp-mariadb
           image: mariadb:10.11.4
           env:
             - name: MYSQL_DATABASE
