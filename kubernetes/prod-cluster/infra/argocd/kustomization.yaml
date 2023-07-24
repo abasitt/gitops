@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-- apps/01-metallb.yam
+- apps/01-metallb.yaml
 - apps/02-istio.yaml
 - apps/03-cert-manager.yaml
 - apps/04-media.yaml
