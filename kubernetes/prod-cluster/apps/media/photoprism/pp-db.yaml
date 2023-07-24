@@ -1,94 +1,93 @@
-# to be done to migrate to mariadb from sql lite
-# ---
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: photoprism-db-pvc
-#   namespace: media
-# spec:
-#   accessModes:
-#     - ReadWriteOnce
-#   storageClassName: local-path
-#   resources:
-#     requests:
-#       storage: 10Gi
-# 
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: photoprism-db
-#   namespace: media
-# spec:
-#   selector:
-#     app: photoprism-db
-#   ports:
-#     - port: 3306
-#       targetPort: 3306
-#   type: ClusterIP
-# 
-# ---
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: photoprism-db
-#   namespace: media
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: photoprism-db
-#   strategy:
-#     type: Recreate
-#   template:
-#     metadata:
-#       labels:
-#         app: photoprism-db
-#     spec:
-#       containers:
-#         - name: photoprism-db
-#           image: mariadb:10.11.4
-#           env:
-#             - name: MYSQL_DATABASE
-#               value: photoprism,photoprismbat
-#             - name: MYSQL_PASSWORD
-#               valueFrom:
-#                 secretKeyRef:
-#                   name: pp-db-credentials
-#                   key: password
-#             - name: MYSQL_ROOT_PASSWORD
-#               valueFrom:
-#                 secretKeyRef:
-#                   name: pp-db-credentials
-#                   key: password
-#             - name: MYSQL_USER
-#               valueFrom:
-#                 secretKeyRef:
-#                   name: pp-db-credentials
-#                   key: user
-#           args:
-#             - mysqld
-#             - --innodb-buffer-pool-size=128M
-#             - --transaction-isolation=READ-COMMITTED
-#             - --character-set-server=utf8mb4
-#             - --collation-server=utf8mb4_unicode_ci
-#             - --max-connections=512
-#             - --innodb-rollback-on-timeout=OFF
-#             - --innodb-lock-wait-timeout=120
-#           ports:
-#             - containerPort: 3306
-#           volumeMounts:
-#             - mountPath: /var/lib/mysql
-#               name: photoprism-db-pvc
-#           resources:
-#             requests:
-#               memory: '32Mi'
-#               cpu: '1m'
-#             limits:
-#               memory: '512Mi'
-#               cpu: '300m'
-#       restartPolicy: Always
-#       volumes:
-#         - name: photoprism-db-pvc
-#           persistentVolumeClaim:
-#             claimName: photoprism-db-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: photoprism-db-pvc
+  namespace: media
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-path
+  resources:
+    requests:
+      storage: 10Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: photoprism-db
+  namespace: media
+spec:
+  selector:
+    app: photoprism-db
+  ports:
+    - port: 3306
+      targetPort: 3306
+  type: ClusterIP
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: photoprism-db
+  namespace: media
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: photoprism-db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: photoprism-db
+    spec:
+      containers:
+        - name: photoprism-db
+          image: mariadb:10.11.4
+          env:
+            - name: MYSQL_DATABASE
+              value: photoprism,photoprismbat
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pp-db-credentials
+                  key: password
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pp-db-credentials
+                  key: password
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: pp-db-credentials
+                  key: user
+          args:
+            - mysqld
+            - --innodb-buffer-pool-size=128M
+            - --transaction-isolation=READ-COMMITTED
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_unicode_ci
+            - --max-connections=512
+            - --innodb-rollback-on-timeout=OFF
+            - --innodb-lock-wait-timeout=120
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: photoprism-db-pvc
+          resources:
+            requests:
+              memory: '32Mi'
+              cpu: '1m'
+            limits:
+              memory: '512Mi'
+              cpu: '300m'
+      restartPolicy: Always
+      volumes:
+        - name: photoprism-db-pvc
+          persistentVolumeClaim:
+            claimName: photoprism-db-pvc
