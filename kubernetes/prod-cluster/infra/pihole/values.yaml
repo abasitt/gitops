@@ -1,0 +1,30 @@
+persistentVolumeClaim:
+  # set to true to use pvc
+  enabled: true # Change to true
+  # set to true to use you own pvc
+  existingClaim: "pihole" # Name of the persistent volume claim
+
+extraEnvVars:
+  TZ: "Asia/Singapore" # Timez
+DNS1: "192.168.30.1"
+
+admin:
+  # -- Specify an existing secret to use as admin password
+  existingSecret: "pihole-credentials"
+  # -- Specify the key inside the secret to use
+  passwordKey: "WEBPASSWORD"
+
+serviceWeb:
+  loadBalancerIP: 192.168.10.192
+  annotations:
+    metallb.universe.tf/allow-shared-ip: home-net-pool
+  type: LoadBalancer
+
+  serviceDns:
+    loadBalancerIP: 192.168.10.192
+    annotations:
+      metallb.universe.tf/allow-shared-ip: home-net-pool
+    type: LoadBalancer
+
+    serviceDhcp:
+      enabled: false
