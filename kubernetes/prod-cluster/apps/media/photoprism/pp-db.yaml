@@ -49,7 +49,7 @@ spec:
           image: mariadb:10.11.4
           env:
             - name: MYSQL_DATABASE
-              value: photoprism,photoprismbat
+              value: photoprism
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -84,8 +84,8 @@ spec:
               memory: '32Mi'
               cpu: '1m'
             limits:
-              memory: '512Mi'
-              cpu: '300m'
+              memory: '256Mi'
+              cpu: '100m'
       restartPolicy: Always
       volumes:
         - name: photoprism-db-pvc

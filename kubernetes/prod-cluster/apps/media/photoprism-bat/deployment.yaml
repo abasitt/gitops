@@ -82,7 +82,6 @@ spec:
           volumeMounts:
           - mountPath: /assets/photos/originals
             name: photoprism-originals-pvc
-            subPath: media/photos
           - mountPath: /assets/cache
             name: photoprism-pvc
             subPath: cache
