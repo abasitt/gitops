@@ -49,7 +49,7 @@ spec:
           image: mariadb:10.11.4
           env:
             - name: MYSQL_DATABASE
-              value: photoprismbat
+              value: photoprism
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
