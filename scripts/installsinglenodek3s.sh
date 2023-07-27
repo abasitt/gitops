@@ -17,6 +17,14 @@ if [[ $choice == "1" ]]; then
     echo "k3s installed successfully!"
 elif [[ $choice == "2" ]]; then
     echo "Starting k3s uninstallation..."
+    
+    ip link delete cilium_host
+    ip link delete cilium_net
+    ip link delete cilium_vxlan
+
+    iptables-save | grep -iv cilium | iptables-restore
+    ip6tables-save | grep -iv cilium | ip6tables-restore
+
     /usr/local/bin/k3s-uninstall.she
     echo "k3s uninstalled successfully!"
 else
