@@ -25,7 +25,7 @@ elif [[ $choice == "2" ]]; then
     iptables-save | grep -iv cilium | iptables-restore
     ip6tables-save | grep -iv cilium | ip6tables-restore
 
-    /usr/local/bin/k3s-uninstall.she
+    /usr/local/bin/k3s-uninstall.sh
     echo "k3s uninstalled successfully!"
 else
     echo "Invalid choice. Exiting..."
