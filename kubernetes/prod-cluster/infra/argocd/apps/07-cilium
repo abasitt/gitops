@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: homeassistant
+  name: cilium
   namespace: argocd
 spec:
   destination:
-    namespace: home-assistant
+    namespace: kube-system
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: home-prod/home-assistant
+    path: kubernetes/prod-cluster/infra/cilium
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: HEAD
   syncPolicy:
