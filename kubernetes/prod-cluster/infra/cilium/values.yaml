@@ -22,8 +22,8 @@ hubble:
       - port-distribution
       - icmp
       - http
-    serviceMonitor:
-      enabled: true
+    #serviceMonitor:
+    #  enabled: true
     dashboards:
       enabled: true
       annotations:
@@ -84,10 +84,10 @@ operator:
     enabled: true
     annotations:
       grafana_folder: Cilium
-prometheus:
-  enabled: true
-  serviceMonitor:
-    enabled: true
+#prometheus:
+#  enabled: true
+#  serviceMonitor:
+#    enabled: true
 dashboards:
   enabled: true
   annotations:
