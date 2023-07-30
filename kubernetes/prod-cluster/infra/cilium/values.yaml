@@ -1,4 +1,5 @@
 autoDirectNodeRoutes: true
+tunnel: "disabled"
 bpf:
   masquerade: true
 bgp:
