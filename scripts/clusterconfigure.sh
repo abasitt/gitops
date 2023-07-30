@@ -39,7 +39,7 @@ if [[ "$cni_input" == "y" ]]; then
     echo "Installing Cilium CNI via Helm..."
     helm repo add cilium https://helm.cilium.io/
     helm repo update
-    helm install cilium cilium/cilium --version 1.13.4 \
+    helm install cilium cilium/cilium --version 1.14.0 \
         --namespace kube-system \
         --set ipam.mode=kubernetes \
         --set cluster.name="home-k3s" \
