@@ -51,33 +51,7 @@ if [[ "$cni_input" == "y" ]]; then
         --set k8sServiceHost=$k8s_service_host_ip \
         --set k8sServicePort=6443 \
         --set kubeProxyReplacement=strict \
-        --set operator.replicas=1
-
-    # Validate the installation
-    cilium status --wait
-else
-    echo "Skipping CNI installation."
-fi
-
-# Prompt user for Cilium CNI Upgrade input
-read -rp "Upgrade Cilium CNI? (y/n): " cni_input
-if [[ "$cni_input" == "y" ]]; then
-    echo "Upgrading Cilium CNI via Helm..."
-    helm repo add cilium https://helm.cilium.io/
-    helm repo update
-    helm install --upgrade cilium cilium/cilium --version 1.14.0 \
-        --namespace kube-system \
-        --set ipam.mode=kubernetes \
-        --set cluster.name="home-k3s" \
-        --set cluster.id=1 \
-        --set bpf.masquerade=true \
-        --set containerRuntime.integration=containerd \
-        --set containerRuntime.socketPath=/var/run/k3s/containerd/containerd.sock \
-        --set hubble.enabled=false \
-        --set k8sServiceHost=$k8s_service_host_ip \
-        --set k8sServicePort=6443 \
-        --set kubeProxyReplacement=strict \
-        --set kubeProxyReplacementHealthzBindAddr= 0.0.0.0:10256 \
+        --set kubeProxyReplacementHealthzBindAddr='0.0.0.0:10256' \
         --set operator.replicas=1 \
         --set autoDirectNodeRoutes=true \
         --set ipv4NativeRoutingCIDR="10.42.0.0/16" \
@@ -88,6 +62,38 @@ if [[ "$cni_input" == "y" ]]; then
 
     # Validate the installation
     cilium status --wait
+else
+    echo "Skipping CNI installation."
+fi
+
+# Prompt user for Cilium CNI Upgrade input, this is not working yet
+#read -rp "Upgrade Cilium CNI? (y/n): " cni_input
+#if [[ "$cni_input" == "y" ]]; then
+#    echo "Upgrading Cilium CNI via Helm..."
+#    helm repo add cilium https://helm.cilium.io/
+#    helm repo update
+#    helm upgrade --install cilium cilium/cilium --version 1.14.0 \
+#        --namespace kube-system \
+#        --set ipam.mode=kubernetes \
+#        --set cluster.name="home-k3s" \
+#        --set cluster.id=1 \
+#        --set bpf.masquerade=true \
+#        --set containerRuntime.integration=containerd \
+#        --set containerRuntime.socketPath=/var/run/k3s/containerd/containerd.sock \
+#        --set hubble.enabled=false \
+#        --set k8sServiceHost=$k8s_service_host_ip \
+#        --set k8sServicePort=6443 \
+#        --set kubeProxyReplacement=strict \
+#        --set kubeProxyReplacementHealthzBindAddr= 0.0.0.0:10256 \
+#        --set operator.replicas=1 \
+#        --set autoDirectNodeRoutes=true \
+#        --set ipv4NativeRoutingCIDR="10.42.0.0/16" \
+#        --set endpointRoutes.enabled=true \
+#        --set loadBalancer.algorithm=maglev \
+#        --set loadBalancer.algorithm=dsr
+#
+#    # Validate the installation
+#    cilium status --wait
 else
     echo "Skipping CNI installation."
 fi
