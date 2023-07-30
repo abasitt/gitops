@@ -9,3 +9,4 @@ resources:
 - apps/05-homeassistant.yaml
 - argocd
 - apps/06-argocd-networking.yaml
+- apps/07-cilium
