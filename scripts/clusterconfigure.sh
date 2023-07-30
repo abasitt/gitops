@@ -51,7 +51,7 @@ if [[ "$cni_input" == "y" ]]; then
         --set k8sServiceHost=$k8s_service_host_ip \
         --set k8sServicePort=6443 \
         --set kubeProxyReplacement=strict \
-        --set kubeProxyReplacementHealthzBindAddr='0.0.0.0:10256' \
+    #    --set kubeProxyReplacementHealthzBindAddr='0.0.0.0:10256' \
         --set operator.replicas=1 \
         --set autoDirectNodeRoutes=true \
         --set ipv4NativeRoutingCIDR="10.42.0.0/16" \
