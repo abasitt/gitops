@@ -14,4 +14,5 @@ spec:
         notIpBlocks: ["192.168.0.0/16"]
     to:
     - operation:
-        hosts: ["hubble.thingsgreener.com"] 
+        hosts: ["hubble.thingsgreener.com"]
+#        notPaths: ["/.well-known/acme-challenge/*"] # to try
