@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
 - ./gateway.yaml
 - ./certificate-prd.yaml
+- ./authorization.yaml
 
 helmCharts:
   - name: cilium
