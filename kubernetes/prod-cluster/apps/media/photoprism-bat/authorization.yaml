@@ -14,5 +14,5 @@ spec:
         notIpBlocks: ["192.168.10.0/24"]
     to:
     - operation:
-        hosts: ["photosbat.thingsgreener.com"] 
+        hosts: ["photosbat.abasitt.tech"] 
         notPaths: ["/.well-known/acme-challenge/*"] # to try

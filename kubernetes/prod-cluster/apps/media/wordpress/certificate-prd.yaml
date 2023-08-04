@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: wordpress
   dnsNames:
-  - blog.thingsgreener.com
+  - blog.abasitt.tech
   issuerRef:
     name: letsencrypt-prod
     # We can reference ClusterIssuers by changing the kind here.

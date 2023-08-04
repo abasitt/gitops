@@ -15,13 +15,13 @@ spec:
       mode: SIMPLE
       credentialName: calibre # must be the same as secret
     hosts:
-    - "books.thingsgreener.com"
+    - "books.abasitt.tech"
   - port:
       number: 80
       name: http
       protocol: HTTP
     hosts:
-    - "books.thingsgreener.com"
+    - "books.abasitt.tech"
   #  tls:
   #    httpsRedirect: true
 ---
@@ -32,7 +32,7 @@ metadata:
   namespace: media
 spec:
   hosts:
-  - "books.thingsgreener.com"
+  - "books.abasitt.tech"
   gateways:
   - calibre-gateway
   http:

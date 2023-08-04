@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: home-assistant
   dnsNames:
-  - ha.thingsgreener.com
+  - ha.abasitt.tech
   issuerRef:
     name: letsencrypt-prod
     # We can reference ClusterIssuers by changing the kind here.

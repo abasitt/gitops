@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: hubble
   dnsNames:
-  - hubble.thingsgreener.com
+  - hubble.abasitt.tech
   issuerRef:
     name: letsencrypt-prod
     # We can reference ClusterIssuers by changing the kind here.

@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: acme-stg-secret
   dnsNames:
-  - test.thingsgreener.com
+  - test.abasitt.tech
   issuerRef:
     name: letsencrypt-staging
     # We can reference ClusterIssuers by changing the kind here.

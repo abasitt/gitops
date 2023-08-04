@@ -15,13 +15,13 @@ spec:
       mode: SIMPLE
       credentialName: photoprism # must be the same as secret
     hosts:
-    - "photos.thingsgreener.com"
+    - "photos.abasitt.tech"
   - port:
       number: 80
       name: http
       protocol: HTTP
     hosts:
-    - "photos.thingsgreener.com"
+    - "photos.abasitt.tech"
   #  tls:
   #    httpsRedirect: true
 ---
@@ -32,7 +32,7 @@ metadata:
   namespace: media
 spec:
   hosts:
-  - "photos.thingsgreener.com"
+  - "photos.abasitt.tech"
   gateways:
   - photoprism-gateway
   http:
