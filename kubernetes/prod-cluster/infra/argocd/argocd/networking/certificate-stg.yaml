@@ -8,7 +8,7 @@ metadata:
 spec:
   secretName: argocd-stg
   dnsNames:
-  - argocd.thingsgreener.com
+  - argocd.abasitt.tech
   issuerRef:
     name: letsencrypt-staging
     # We can reference ClusterIssuers by changing the kind here.
