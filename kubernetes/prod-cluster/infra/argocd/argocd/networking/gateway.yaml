@@ -15,7 +15,7 @@ spec:
       mode: SIMPLE
       credentialName: argocd # must be the same as secret
     hosts:
-    - "argocd.thingsgreener.com"
+    - "argocd.abasitt.tech"
   - port:
       number: 80
       name: http
@@ -32,7 +32,7 @@ metadata:
   namespace: argocd
 spec:
   hosts:
-  - "argocd.thingsgreener.com"
+  - "argocd.abasitt.tech"
   gateways:
   - argocd-gateway
   http:
