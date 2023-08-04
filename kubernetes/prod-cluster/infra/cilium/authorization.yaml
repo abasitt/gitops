@@ -15,4 +15,4 @@ spec:
     to:
     - operation:
         hosts: ["hubble.thingsgreener.com"]
-#        notPaths: ["/.well-known/acme-challenge/*"] # to try
+        notPaths: ["/.well-known/acme-challenge/*"] # to try

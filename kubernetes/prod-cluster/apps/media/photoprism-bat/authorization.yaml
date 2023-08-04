@@ -15,3 +15,4 @@ spec:
     to:
     - operation:
         hosts: ["photosbat.thingsgreener.com"] 
+        notPaths: ["/.well-known/acme-challenge/*"] # to try
