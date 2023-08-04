@@ -10268,7 +10268,7 @@ spec:
           valueFrom:
             resourceFieldRef:
               resource: limits.memory
-        image: docker.io/istio/pilot:1.18.0
+        image: docker.io/istio/pilot:1.18.2
         name: discovery
         ports:
         - containerPort: 8080
