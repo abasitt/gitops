@@ -15,13 +15,13 @@ spec:
       mode: SIMPLE
       credentialName: wordpress # must be the same as secret
     hosts:
-    - "blog.abasitt.tech"
+    - "blog.thingsgreener.com"
   - port:
       number: 80
       name: http
       protocol: HTTP
     hosts:
-    - "blog.abasitt.tech"
+    - "blog.thingsgreener.com"
   #  tls:
   #    httpsRedirect: true
 ---
@@ -32,7 +32,7 @@ metadata:
   namespace: media
 spec:
   hosts:
-  - "blog.abasitt.tech"
+  - "blog.thingsgreener.com"
   gateways:
   - wordpress-gateway
   http:
@@ -45,9 +45,9 @@ spec:
           # Note: this pattern will redirect to HTTPS all URIs NOT starting with `/.well-` (which should be the best case since your business URIs are unlikely to start with that)
           # this to let pass requests to renew certs like `/.well-known/acme-challenge/...`
           regex: "^/(([^\\.].*)|(\\.[^w].*)|(\\.w[^e].*)|(\\.we[^l].*)|(\\.wel[^l].*)|(\\.well[^\\-].*))"
-    redirect:
-      scheme: https
-      redirectCode: 302 # 302 to not mess with risky permanent redirections since a workaround
+    #redirect:
+    #  scheme: https
+    #  redirectCode: 302 # 302 to not mess with risky permanent redirections since a workaround
   - route:
     - destination:
         host: wordpress
