@@ -54,6 +54,7 @@ if [[ "$cni_input" == "y" ]]; then
         --set operator.replicas=1 \
         --set autoDirectNodeRoutes=true \
         --set ipv4NativeRoutingCIDR="10.42.0.0/16" \
+        --set tunnel=disabled \
         --set endpointRoutes.enabled=true \
         --set loadBalancer.algorithm=maglev \
         --set loadBalancer.algorithm=dsr
