@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: kubernetes/prod-cluster/infra/cilium
+    path: kubernetes/prod-cluster/security/argo-apps
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: HEAD
   syncPolicy:
