@@ -4,9 +4,9 @@ kind: Kustomization
 namespace: security
 
 helmCharts:
-  - name: hashicorp
+  - name: vault
     releaseName: vault
     namespace: security
-    repo: https://github.com/hashicorp/vault-helm
+    repo: https://helm.releases.hashicorp.com
     version: 0.25.0
     valuesFile: values.yaml
