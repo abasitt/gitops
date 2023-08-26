@@ -7,6 +7,6 @@ helmCharts:
   - name: hashicorp-charts
     releaseName: vault
     namespace: security
-    repo: https://helm.releases.hashicorp.com
+    repo: https://github.com/hashicorp/vault-helm
     version: 0.25.0
     valuesFile: values.yaml
