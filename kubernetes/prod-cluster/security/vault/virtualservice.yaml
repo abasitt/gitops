@@ -1,0 +1,30 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: vault-vs
+  namespace: security
+spec:
+  hosts:
+  - "vault.abasitt.tech"
+  gateways:
+  - security-gateway
+  http:
+  - name: "vault-routes"
+    match:
+      - scheme:
+          exact: http
+        uri:
+          # This is not a perfect regex but RE2 does not allow negations so we have to hack a it
+          # Note: this pattern will redirect to HTTPS all URIs NOT starting with `/.well-` (which should be the best case since your business URIs are unlikely to start with that)
+          # this to let pass requests to renew certs like `/.well-known/acme-challenge/...`
+          regex: "^/(([^\\.].*)|(\\.[^w].*)|(\\.w[^e].*)|(\\.we[^l].*)|(\\.wel[^l].*)|(\\.well[^\\-].*))"
+    redirect:
+      scheme: https
+      redirectCode: 302 # 302 to not mess with risky permanent redirections since a workaround
+  - route:
+    - destination:
+        host: vault
+        port:
+          number: 80
+---
