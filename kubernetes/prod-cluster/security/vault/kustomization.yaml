@@ -5,7 +5,6 @@ namespace: security
 
 resources:
   - ./virtualservice.yaml
-  - ./certificate-prd.yaml
 
 helmCharts:
   - name: vault
