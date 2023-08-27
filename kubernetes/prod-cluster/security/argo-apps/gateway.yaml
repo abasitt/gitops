@@ -10,7 +10,7 @@ spec:
   servers:
   - port:
       number: 443
-      name: https
+      name: https-vault
       protocol: HTTPS
     tls:
       mode: SIMPLE
@@ -19,9 +19,22 @@ spec:
     - "vault.abasitt.tech"
   - port:
       number: 80
-      name: http
+      name: http-vault
       protocol: HTTP
     hosts:
     - "vault.abasitt.tech"
-   # tls:
-   #   httpsRedirect: true
+#  - port:
+#      number: 443
+#      name: https-temp
+#      protocol: HTTPS
+#    tls:
+#      mode: SIMPLE
+#      credentialName: temp # must be the same as secret
+#    hosts:
+#    - "temp.abasitt.tech"
+#  - port:
+#      number: 80
+#      name: http-temp
+#      protocol: HTTP
+#    hosts:
+#    - "temp.abasitt.tech"
