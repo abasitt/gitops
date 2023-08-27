@@ -3,6 +3,8 @@ kind: VaultAuth
 metadata:
   name: static-auth
   namespace: demo-app
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
 spec:
   method: kubernetes
   mount: demo-auth-mount
