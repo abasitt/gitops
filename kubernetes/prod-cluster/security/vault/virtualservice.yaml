@@ -26,5 +26,5 @@ spec:
     - destination:
         host: vault
         port:
-          number: 80
+          number: 3200
 ---
