@@ -4,9 +4,7 @@ kind: Kustomization
 
 resources:
   - app-deployment.yaml
-  - app-secret.yaml
   - vault-auth-dynamic.yaml
-  - vault-dynamic-secret-create.yaml
   - vault-dynamic-secret.yaml
 
 helmCharts:
