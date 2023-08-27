@@ -2,7 +2,7 @@ apiVersion: secrets.hashicorp.com/v1beta1
 kind: VaultAuth
 metadata:
   name: static-auth
-  namespace: demo-app
+  namespace: demo-apps
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 spec:

@@ -22,7 +22,7 @@ EOF
 # Create a role named role1 in the Kubernetes auth method
 vault write auth/demo-auth-mount/role/role1 \
    bound_service_account_names=default \
-   bound_service_account_namespaces=demo-app \
+   bound_service_account_namespaces=demo-apps \
    policies=dev \
    audience=vault \
    ttl=24h

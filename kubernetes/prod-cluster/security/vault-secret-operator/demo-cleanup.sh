@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Connect to the Vault pod named vault-0 in the namespace vault
-kubectl exec --stdin=true --tty=true vault-0 -n vault -- /bin/sh
+kubectl exec --stdin=true --tty=true vault-0 -n security -- /bin/sh
 
 # Delete the secret named webapp/config in the kv-v2 secrets engine
 vault kv delete kvv2/webapp/config
