@@ -2,6 +2,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+resources:
+  - app-deployment.yaml
+  - app-secret.yaml
+  - vault-auth-dynamic.yaml
+  - vault-dynamic-secret-create.yaml
+  - vault-dyanmic-secret.yaml
+
 helmCharts:
   - name: postgresql
     releaseName: postgresql
