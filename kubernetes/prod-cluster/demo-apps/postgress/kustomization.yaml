@@ -7,7 +7,7 @@ resources:
   - app-secret.yaml
   - vault-auth-dynamic.yaml
   - vault-dynamic-secret-create.yaml
-  - vault-dyanmic-secret.yaml
+  - vault-dynamic-secret.yaml
 
 helmCharts:
   - name: postgresql
