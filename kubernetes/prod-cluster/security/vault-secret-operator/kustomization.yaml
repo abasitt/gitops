@@ -7,6 +7,6 @@ helmCharts:
   - name: vault-secrets-operator
     releaseName: vault-secrets-operator
     namespace: security
-    repo: https://github.com/hashicorp/vault-secrets-operator/tree/main/chart
+    repo: https://github.com/hashicorp/vault-secrets-operator/
     version: 0.2.0
     valuesFile: values.yaml
