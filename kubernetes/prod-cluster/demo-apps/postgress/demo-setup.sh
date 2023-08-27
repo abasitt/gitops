@@ -45,5 +45,3 @@ if [ "$cleanup" = true ]; then
   # Delete the policy
   vault policy delete demo-auth-policy-db
 fi
-
-EOF
