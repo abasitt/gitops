@@ -2,8 +2,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-#resources:
-#  - ./vault-auth-static.yaml
+resources:
+  - vault-auth-operator.yaml
+  - vault-operator-sa.yaml
 
 helmCharts:
   - name: vault-secrets-operator
