@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Connect to the Vault pod named vault-0 in the namespace vault
-kubectl -n security exec --stdin=true --tty=true vault-0 -n vault -- /bin/sh
+kubectl exec --stdin=true --tty=true vault-0 -n security -- /bin/sh
 
 # Enable the Kubernetes auth method at demo-auth-mount path
 vault auth enable -path demo-auth-mount kubernetes
