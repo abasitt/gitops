@@ -34,6 +34,7 @@ path "demo-db/creds/dev-postgres" {
 }
 EOF
 
+# ----
 
 # Create a new role for the dynamic secret
 vault write auth/demo-auth-mount/role/auth-role \
@@ -82,6 +83,8 @@ if [ "$cleanup" = true ]; then
 
   # Delete the policy
   vault policy delete demo-auth-policy-db
+
+  # ---
 
   # Delete the role
   vault delete auth/demo-auth-mount/role/auth-role
