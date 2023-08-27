@@ -6,6 +6,8 @@ resources:
 #  - app-deployment.yaml
   - vault-auth-dynamic.yaml
   - vault-dynamic-secret.yaml
+  - app-deploy-demo.yaml
+  - app-sleep.yaml
 
 helmCharts:
   - name: postgresql

@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vso-demo
+  namespace: demo-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vso-demo
+  template:
+    metadata:
+      labels:
+        app: vso-demo
+    spec:
+      containers:
+      - name: python-app
+        image: abasitt/vso-demo:latest
+        imagePullPolicy: "IfNotPresent"
+        ports:
+        - containerPort: 5000
+        env:
+        - name: host
+          value: postgresql
+        - name: username
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: vso-db-demo
+        - name: password
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: vso-db-demo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vso-demo
+  namespace: demo-apps
+spec:
+  selector:
+    app: vso-demo
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5000
