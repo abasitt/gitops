@@ -11,3 +11,4 @@ resources:
 - apps/06-argocd-networking.yaml
 - apps/07-cilium.yaml
 - apps/08-securityapps.yaml
+- apps/09-demo-apps.yaml
