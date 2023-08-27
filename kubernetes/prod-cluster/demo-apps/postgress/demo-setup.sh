@@ -34,6 +34,44 @@ path "demo-db/creds/dev-postgres" {
 }
 EOF
 
+
+# Create a new role for the dynamic secret
+vault write auth/demo-auth-mount/role/auth-role \
+  bound_service_account_names=default \
+  bound_service_account_namespaces=demo-apps \
+  token_ttl=0 \
+  token_max_ttl=120 \
+  token_policies=demo-auth-policy-db \
+  audience=vault
+
+# Enable an instance of the Transit Secrets Engine at the path demo-transit
+vault secrets enable -path=demo-transit transit
+
+# Create a secret cache configuration
+vault write demo-transit/cache-config size=500
+
+# Create a encryption key
+vault write -force demo-transit/keys/vso-client-cache
+
+# Create a policy for the operator role to access the encryption key
+vault policy write demo-auth-policy-operator - <<EOF
+path "demo-transit/encrypt/vso-client-cache" {
+  capabilities = ["create", "update"]
+}
+path "demo-transit/decrypt/vso-client-cache" {
+  capabilities = ["create", "update"]
+}
+EOF
+
+# Create Kubernetes auth role for the operator
+vault write auth/demo-auth-mount/role/auth-role-operator \
+  bound_service_account_names=demo-operator \
+  bound_service_account_namespaces=demo-apps \
+  token_ttl=0 \
+  token_max_ttl=120 \
+  token_policies=demo-auth-policy-db \
+  audience=vault
+
 # Check if the cleanup flag is true
 if [ "$cleanup" = true ]; then
   # Delete the secrets engine
@@ -44,4 +82,17 @@ if [ "$cleanup" = true ]; then
 
   # Delete the policy
   vault policy delete demo-auth-policy-db
+
+  # Delete the role
+  vault delete auth/demo-auth-mount/role/auth-role
+
+  # Delete the secrets engine
+  vault secrets disable demo-transit
+
+  # Delete the key
+  vault delete demo-transit/keys/vso-client-cache
+
+  # Delete the policies
+  vault policy delete demo-auth-policy-db
+  vault policy delete demo-auth-policy-operator
 fi
