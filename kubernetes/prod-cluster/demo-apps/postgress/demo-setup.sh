@@ -3,8 +3,11 @@
 # Set the cleanup flag to true or false
 cleanup=false
 
+# read the password
+POSTGRES_PASSWORD=$(kubectl get secret --namespace demo-apps postgresql -o jsonpath="{.data.postgres-password}" | base64 -d)
+
 # Connect to the Vault instance
-kubectl exec --stdin=true --tty=true vault-0 -n security -- /bin/sh
+kubectl exec --stdin=true --tty=true vault-0 -n security -- env PASSWORD="$POSTGRES_PASSWORD" /bin/sh
 
 # Enable an instance of the Database Secrets Engine
 vault secrets enable -path=demo-db database
@@ -15,7 +18,7 @@ vault write demo-db/config/demo-db \
   allowed_roles="dev-postgres" \
   connection_url="postgresql://{{username}}:{{password}}@postgresql.demo-apps.svc.cluster.local:5432/postgres?sslmode=disable" \
   username="postgres" \
-  password="dFs0fNFJdl"
+  password="$PASSWORD"
 
 # Create a role for the postgres pod
 vault write demo-db/roles/dev-postgres \
