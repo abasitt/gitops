@@ -6,7 +6,7 @@ kind: Kustomization
 #  - ./namespace.yaml
 
 helmCharts:
-  - name: prometheus-community
+  - name: kube-prometheus-stack
     releaseName: kube-prometheus-stack
     namespace: observability
     repo: https://prometheus-community.github.io/helm-charts
