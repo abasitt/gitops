@@ -4,6 +4,7 @@ kind: Kustomization
 
 resources:
   - ./pv.yaml
+  - https://github.com/prometheus-community/helm-charts/tree/kube-prometheus-stack-51.0.3/charts/kube-prometheus-stack/charts/crds/crds
 
 helmCharts:
   - name: kube-prometheus-stack
