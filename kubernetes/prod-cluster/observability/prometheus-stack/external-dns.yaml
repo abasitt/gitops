@@ -1,0 +1,14 @@
+#for future reference, not in used
+#credit to https://github.com/danmanners/homelab-kube-cluster/blob/main/manifests/bootstrapping-onprem/09-kube-prom-stack/external-dns.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-extname
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: grafana.homelab.danmanners.com
+    external-dns.alpha.kubernetes.io/ttl: "300"
+spec:
+  type: ExternalName
+  externalName: nginx.homelab.danmanners.com
+  sessionAffinity: None
