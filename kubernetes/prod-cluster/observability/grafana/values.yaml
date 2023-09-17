@@ -1,0 +1,183 @@
+deploymentStrategy:
+  type: Recreate
+admin:
+  existingSecret: grafana-admin-secret
+env:
+  GF_EXPLORE_ENABLED: true
+  GF_SERVER_ROOT_URL: "http://grafana.dagobah.internal"
+#  GF_DATE_FORMATS_USE_BROWSER_LOCALE: true
+#  GF_DATE_FORMATS_FULL_DATE: "MMM Do, YYYY hh:mm:ss a"
+#  GF_DATE_FORMATS_INTERVAL_SECOND: "hh:mm:ss a"
+#  GF_DATE_FORMATS_INTERVAL_MINUTE: "hh:mm a"
+#  GF_DATE_FORMATS_INTERVAL_HOUR: "DD/MM hh:mm a"
+#  GF_DATE_FORMATS_INTERVAL_DAY: "DD/MM"
+#  GF_DATE_FORMATS_INTERVAL_MONTH: "MM-YYYY"
+#  GF_DATE_FORMATS_INTERVAL_YEAR: "YYYY"
+grafana.ini:
+  analytics:
+    check_for_updates: false
+    check_for_plugin_updates: false
+    reporting_enabled: false
+dashboardProviders:
+  dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+      - name: default
+        orgId: 1
+        folder: ""
+        type: file
+        disableDeletion: false
+        editable: true
+        options:
+          path: /var/lib/grafana/dashboards/default
+      - name: cilium
+        orgId: 1
+        folder: Cilium
+        type: file
+        disableDeletion: false
+        editable: true
+        options:
+          path: /var/lib/grafana/dashboards/cilium
+      - name: kubernetes
+        orgId: 1
+        folder: Kubernetes
+        type: file
+        disableDeletion: false
+        editable: true
+        options:
+          path: /var/lib/grafana/dashboards/kubernetes
+      - name: istio
+        orgId: 1
+        folder: Istio
+        type: file
+        disableDeletion: false
+        editable: true
+        options:
+          path: /var/lib/grafana/dashboards/istio
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    deleteDatasources:
+      - { name: Prometheus, orgId: 1 }
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        uid: prometheus
+        access: proxy
+        url: http://kube-prometheus-stack-prometheus.observability.svc.cluster.local:9090
+        jsonData:
+          prometheusType: Prometheus
+        isDefault: true
+dashboards:
+  default:
+    cloudflared:
+      gnetId: 17457 # https://grafana.com/grafana/dashboards/17457?tab=revisions
+      revision: 6
+      datasource:
+        - { name: DS_PROMETHEUS, value: Prometheus }
+    external-dns:
+      gnetId: 15038 # https://grafana.com/grafana/dashboards/15038?tab=revisions
+      revision: 1
+      datasource: Prometheus
+    cert-manager:
+      url: https://raw.githubusercontent.com/monitoring-mixins/website/master/assets/cert-manager/dashboards/cert-manager.json
+      datasource: Prometheus
+    node-exporter-full:
+      gnetId: 1860 # https://grafana.com/grafana/dashboards/1860?tab=revisions
+      revision: 31
+      datasource: Prometheus
+  cilum:
+    cilium-dashboard:
+      url: https://raw.githubusercontent.com/cilium/cilium/v1.13.7/examples/kubernetes/addons/prometheus/files/grafana-dashboards/cilium-dashboard.json
+      datasource: Prometheus
+    cilium-operator-dashboard:
+      url: https://raw.githubusercontent.com/cilium/cilium/v1.13.7/examples/kubernetes/addons/prometheus/files/grafana-dashboards/cilium-operator-dashboard.json
+      datasource: Prometheus
+    # Source: https://grafana.com/grafana/dashboards/18015-cilium-policy-verdicts/
+    cilium-policy-verdict-dashboard:
+      url: https://raw.githubusercontent.com/isovalent/grafana-dashboards/main/dashboards/cilium-policy-verdicts/cilium-policy-verdicts-dashboard.json
+      datasource:
+        - { name: DS_PROMETHEUS, value: Prometheus }
+    hubble-dashboard:
+      url: https://raw.githubusercontent.com/cilium/cilium/v1.13.7/examples/kubernetes/addons/prometheus/files/grafana-dashboards/hubble-dashboard.json
+      datasource: Prometheus
+  kubernetes:
+    kubernetes-api-server:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-api-server.json
+      datasource: Prometheus
+    kubernetes-coredns:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-coredns.json
+      datasource: Prometheus
+    kubernetes-global:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-global.json
+      datasource: Prometheus
+    kubernetes-namespaces:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-namespaces.json
+      datasource: Prometheus
+    kubernetes-nodes:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-nodes.json
+      datasource: Prometheus
+    kubernetes-pods:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-pods.json
+      datasource: Prometheus
+  # Istio dashboards must be kept in parity with the version deployed
+  # https://grafana.com/grafana/dashboards/7639/revisions
+  # https://grafana.com/grafana/dashboards/?search=istio    
+  istio:
+    istio-mesh:
+      url: https://grafana.com/api/dashboards/7639/revisions/162/download
+      datasource: Prometheus
+    istio-service:
+      url: https://grafana.com/api/dashboards/7636/revisions/162/download
+      datasource: Prometheus
+    istio-workload:
+      url: https://grafana.com/api/dashboards/7630/revisions/162/download
+      datasource: Prometheus
+    istio-performence:
+      url: https://grafana.com/api/dashboards/11829/revisions/162/download
+      datasource: Prometheus
+    istio-control-plane:
+      url: https://grafana.com/api/dashboards/7645/revisions/162/download
+      datasource: Prometheus
+    istio-wasm:
+      url: https://grafana.com/api/dashboards/13277/revisions/119/download
+      datasource: Prometheus
+sidecar:
+  dashboards:
+    enabled: true
+    searchNamespace: ALL
+    labelValue: ""
+    label: grafana_dashboard
+    folderAnnotation: grafana_folder
+    provider:
+      disableDelete: true
+      foldersFromFilesStructure: true
+  datasources:
+    enabled: true
+    searchNamespace: ALL
+    labelValue: ""
+serviceMonitor:
+  enabled: true
+plugins:
+  - grafana-piechart-panel
+  - grafana-worldmap-panel
+  - grafana-clock-panel
+  - isovalent-hubble-datasource
+  - natel-discrete-panel
+  - pr0ps-trackmap-panel
+  - vonage-status-panel
+#ingress:
+#  enabled: true
+#  ingressClassName: internal
+#  annotations:
+#    hajimari.io/icon: simple-icons:grafana
+#  hosts:
+#    - &host "grafana.${SECRET_DOMAIN}"
+#  tls:
+#    - hosts:
+#        - *host
+persistence:
+  enabled: true
+  storageClassName: local-path
+testFramework:
+  enabled: false

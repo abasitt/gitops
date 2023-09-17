@@ -1,0 +1,19 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: grafana-vs
+  namespace: observability
+spec:
+  hosts:
+  - "grafana.dagobah.internal"
+  gateways:
+  - observability-gateway
+  http:
+  - name: "grafana-routes"
+    route:
+    - destination:
+        host: grafana
+        port:
+          number: 9090
+---
