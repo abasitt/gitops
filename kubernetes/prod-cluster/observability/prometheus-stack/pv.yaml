@@ -14,4 +14,4 @@ spec:
     - ReadWriteOnce
   nfs:
     server: nfs.hv01.home.arpa
-    path: /zp_sda_sdb/k8s/data/monitoring/promestack
+    path: /zp_sda_sdb/k8s/monitoring/promestack
