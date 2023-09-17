@@ -3,13 +3,15 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: prometheus-pv
-  namespace: monitoring
+  namespace: observability
+  labels:
+    name: prometheus
 spec:
   storageClassName: manual
   capacity:
     storage: 25Gi
   accessModes:
-    - ReadOnlyMany
+    - ReadWriteOnce
   nfs:
     server: nfs.hv01.home.arpa
     path: /zp_sda_sdb/k8s/data/monitoring/promestack
