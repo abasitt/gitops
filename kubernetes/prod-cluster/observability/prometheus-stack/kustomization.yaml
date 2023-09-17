@@ -4,7 +4,6 @@ kind: Kustomization
 
 resources:
   - ./pv.yaml
-  - 
 
 helmCharts:
   - name: kube-prometheus-stack
