@@ -48,7 +48,7 @@ spec:
     redirect:
       scheme: https
       redirectCode: 302 # 302 to not mess with risky permanent redirections since a workaround
-  route:
+    route:
     - destination:
         host: ha-service
         port:
