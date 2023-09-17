@@ -1,0 +1,19 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: prometheus-vs
+  namespace: observability
+spec:
+  hosts:
+  - "prometheus.dagobah.internal"
+  gateways:
+  - observability-gateway
+  http:
+  - name: "prometheus-routes"
+    route:
+    - destination:
+        host: kube-prometheus-stack-prometheus
+        port:
+          number: 9090
+---

@@ -1,0 +1,40 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: observability-gateway
+  namespace: observability
+spec:
+  selector:
+    istio: internalgateway
+  servers:
+#  - port:
+#      number: 443
+#      name: https-prom
+#      protocol: HTTPS
+#    tls:
+#      mode: SIMPLE
+#      credentialName: vault # must be the same as secret
+#    hosts:
+#    - "prometheus.abasitt.tech"
+  - port:
+      number: 80
+      name: http-prom
+      protocol: HTTP
+    hosts:
+    - "prometheus.dagobah.internal"
+#  - port:
+#      number: 443
+#      name: https-temp
+#      protocol: HTTPS
+#    tls:
+#      mode: SIMPLE
+#      credentialName: temp # must be the same as secret
+#    hosts:
+#    - "temp.abasitt.tech"
+#  - port:
+#      number: 80
+#      name: http-temp
+#      protocol: HTTP
+#    hosts:
+#    - "temp.abasitt.tech"
