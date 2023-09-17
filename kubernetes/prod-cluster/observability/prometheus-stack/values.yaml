@@ -96,17 +96,17 @@ prometheus:
     scrapeConfigSelectorNilUsesHelmValues: false
     enableAdminAPI: true
     walCompression: true
-    retentionSize: 15GB
+    retentionSize: 10GB
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: manual
+          storageClassName: local-path
           resources:
             requests:
-              storage: 25Gi
-        selector:
-          matchLabels:
-            name: prometheus
+              storage: 15Gi
+        #selector: # this one was for nfs storage
+        #  matchLabels:
+        #    name: prometheus
 grafana:
   enabled: false
   forceDeployDashboards: true
