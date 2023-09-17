@@ -12,4 +12,4 @@ resources:
 - apps/07-cilium.yaml
 - apps/08-securityapps.yaml
 #- apps/09-demo-apps.yaml #removing demo-apps for now
-# - apps/10-observability.yaml
+- apps/10-observability.yaml
