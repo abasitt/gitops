@@ -86,12 +86,12 @@ dashboards:
       gnetId: 1860 # https://grafana.com/grafana/dashboards/1860?tab=revisions
       revision: 31
       datasource: Prometheus
-  cilum:
+  cilium:
     cilium-dashboard:
-      url: https://raw.githubusercontent.com/cilium/cilium/v1.13.2/examples/kubernetes/addons/prometheus/files/grafana-dashboards/cilium-dashboard.json
+      url: https://raw.githubusercontent.com/cilium/cilium/v1.14.2/install/kubernetes/cilium/files/cilium-agent/dashboards/cilium-dashboard.json
       datasource: Prometheus
     cilium-operator-dashboard:
-      url: https://raw.githubusercontent.com/cilium/cilium/v1.13.2/examples/kubernetes/addons/prometheus/files/grafana-dashboards/cilium-operator-dashboard.json
+      url: https://raw.githubusercontent.com/cilium/cilium/v1.14.2/install/kubernetes/cilium/files/cilium-operator/dashboards/cilium-operator-dashboard.json
       datasource: Prometheus
     # Source: https://grafana.com/grafana/dashboards/18015-cilium-policy-verdicts/
     cilium-policy-verdict-dashboard:
@@ -99,7 +99,10 @@ dashboards:
       datasource:
         - { name: DS_PROMETHEUS, value: Prometheus }
     hubble-dashboard:
-      url: https://raw.githubusercontent.com/cilium/cilium/v1.13.2/examples/kubernetes/addons/prometheus/files/grafana-dashboards/hubble-dashboard.json
+      url: https://raw.githubusercontent.com/cilium/cilium/v1.14.2/install/kubernetes/cilium/files/hubble/dashboards/hubble-dashboard.json
+      datasource: Prometheus
+    hubble-l7-http-metrics:
+      url: https://raw.githubusercontent.com/cilium/cilium/v1.14.2/install/kubernetes/cilium/files/hubble/dashboards/hubble-l7-http-metrics-by-workload.json
       datasource: Prometheus
   kubernetes:
     kubernetes-api-server:
