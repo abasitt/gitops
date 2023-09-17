@@ -36,8 +36,7 @@ spec:
   gateways:
   - calibre-gateway
   http:
-  - name: "calibre-routes"
-    match:
+  - match:
       - scheme:
           exact: http
         uri:
@@ -48,7 +47,8 @@ spec:
     redirect:
       scheme: https
       redirectCode: 302 # 302 to not mess with risky permanent redirections since a workaround
-  - route:
+  - name: "calibre-routes"
+    route:
     - destination:
         host: calibre
         port:
