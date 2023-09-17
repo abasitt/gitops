@@ -7,7 +7,7 @@ kind: Kustomization
 
 helmCharts:
   - name: prometheus-community
-    releaseName: prometheus-community
+    releaseName: kube-prometheus-stack
     namespace: observability
     repo: https://prometheus-community.github.io/helm-charts
     version: 51.0.3
