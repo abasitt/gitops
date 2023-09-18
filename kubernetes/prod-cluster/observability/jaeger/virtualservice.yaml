@@ -1,0 +1,19 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: jaeger-vs
+  namespace: observability
+spec:
+  hosts:
+  - "jaeger.dagobah.internal"
+  gateways:
+  - observability-gateway
+  http:
+  - name: "jaeger-routes"
+    route:
+    - destination:
+        host: jaeger-query.observability.svc.cluster.local
+        port:
+          number: 16686
+---
