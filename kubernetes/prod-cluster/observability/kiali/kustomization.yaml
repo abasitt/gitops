@@ -4,6 +4,7 @@ kind: Kustomization
 
 resources:
   - virtualservice.yaml
+  - kiali-token.yaml
 
 helmCharts:
   - name: kiali-server
