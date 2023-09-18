@@ -6,8 +6,8 @@ resources:
   - virtualservice.yaml
 
 helmCharts:
-  - name: kiali-charts
-    releaseName: kiali
+  - name: kiali-server
+    releaseName: kiali-server
     namespace: observability
     repo: https://kiali.org/helm-charts
     version: 1.73.0

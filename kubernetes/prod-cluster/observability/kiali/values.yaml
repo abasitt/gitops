@@ -12,9 +12,9 @@ external_services:
     in_cluster_url: 'http://jaeger-query.observability.svc.cluster.local:16685/jaeger'
     use_grpc: true
     # Public facing URL of Jaeger
-    url: 'https://jaeger.${CLUSTER_DOMAIN}/jaeger'
+    url: 'http://jaeger.dagobah.internal/jaeger'
   grafana:
     enabled: true
     in_cluster_url: 'http://grafana.observability.svc.cluster.local/'
     # Public facing URL of Grafana
-    url: 'https://grafana.${CLUSTER_DOMAIN}/grafana'
+    url: 'http://grafana.dagobah.internal/grafana'
