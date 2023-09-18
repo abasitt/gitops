@@ -6,3 +6,5 @@ metadata:
   annotations:
     kubernetes.io/service-account.name: kiali
 type: kubernetes.io/service-account-token
+
+#kubectl get secret kiali-token -n observability -o jsonpath={.data.token} | base64 -d
