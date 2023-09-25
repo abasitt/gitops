@@ -22,8 +22,8 @@ hubble:
       - port-distribution
       - icmp
       - http
-    #serviceMonitor:
-    #  enabled: true
+    serviceMonitor:
+      enabled: true
     dashboards:
       enabled: true
       annotations:
@@ -31,9 +31,9 @@ hubble:
   relay:
     enabled: true
     rollOutPods: true
-  #  prometheus:
-  #    serviceMonitor:
-  #      enabled: true
+    prometheus:
+      serviceMonitor:
+        enabled: true
   ui:
     enabled: true
     rollOutPods: true
@@ -50,25 +50,9 @@ hubble:
 ipam:
   mode: kubernetes
 ipv4NativeRoutingCIDR: "10.42.0.0/16"
-#{% if bootstrap_ipv6_enabled | default(false) %}
-#ipv6NativeRoutingCIDR: "${CLUSTER_CIDR_V6}"
-#ipv6:
-#  enabled: true
-#{% endif %}
 k8sServiceHost: "192.168.30.121"
 k8sServicePort: 6443
 kubeProxyReplacement: strict
-#kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256
-#l2announcements:
-#  {% if bootstrap_ipv6_enabled | default(false) %}
-#  enabled: false
-#  {% else %}
-#  enabled: true
-#  # https://github.com/cilium/cilium/issues/26586
-#  leaseDuration: 120s
-#  leaseRenewDeadline: 60s
-#  leaseRetryPeriod: 1s
-#  {% endif %}
 loadBalancer:
   algorithm: maglev
   mode: dsr
@@ -76,18 +60,19 @@ localRedirectPolicy: true
 operator:
   replicas: 1
   rollOutPods: true
-#  prometheus:
-#    enabled: true
-#    serviceMonitor:
-#      enabled: true
+  prometheus:
+    enabled: true
+    serviceMonitor:
+      enabled: true
   dashboards:
     enabled: true
     annotations:
       grafana_folder: Cilium
-#prometheus:
-#  enabled: true
-#  serviceMonitor:
-#    enabled: true
+prometheus:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+    trustCRDsExist: true
 dashboards:
   enabled: true
   annotations:
