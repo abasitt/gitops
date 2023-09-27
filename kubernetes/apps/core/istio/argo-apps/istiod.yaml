@@ -14,7 +14,7 @@ spec:
     kind: ValidatingWebhookConfiguration
   project: default
   source:
-    path: kubernetes/core/istio/istiod
+    path: kubernetes/apps/core/istio/istiod
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: HEAD
   syncPolicy:
