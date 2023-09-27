@@ -46,7 +46,7 @@ spec:
     spec:
       containers:
         - name: photoprismbat-db
-          image: mariadb:10.11.4
+          image: mariadb:11.1.2
           env:
             - name: MYSQL_DATABASE
               value: photoprism
