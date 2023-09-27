@@ -1,18 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: demo-apps
+  name: media
   namespace: argocd
 spec:
   destination:
-    namespace: demo-apps
+    namespace: media
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: kubernetes/prod-cluster/demo-apps/argo-apps
+    path: kubernetes/apps/media/argo-apps
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: HEAD
   syncPolicy:
-    automated: {}
     syncOptions:
     - CreateNamespace=true

@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: kubernetes/prod-cluster/infra/cert-manager/cert-manager
+    path: kubernetes/apps/core/cert-manager/cert-manager
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: HEAD
   syncPolicy:
@@ -25,7 +25,7 @@ metadata:
 spec:
   project: default
   source:
-    path: kubernetes/prod-cluster/infra/cert-manager/issuers
+    path: kubernetes/apps/core/cert-manager/issuers
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: HEAD
   destination:

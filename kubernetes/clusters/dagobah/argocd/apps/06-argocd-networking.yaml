@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: observability-apps
+  name: argo-networking
   namespace: argocd
 spec:
   destination:
-    namespace: observability
+    namespace: istio-ingress
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: kubernetes/prod-cluster/observability/argo-apps
+    path: kubernetes/cluster/dagobah/argocd/argocd/networking
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: HEAD
   syncPolicy:

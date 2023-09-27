@@ -20,7 +20,7 @@ spec:
     jsonPointers:
     - /spec/conversion/webhook/clientConfig/caBundle
   source:
-    path: kubernetes/prod-cluster/infra/metallb
+    path: kubernetes/apps/core/metallb
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: HEAD
   syncPolicy:

@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-networking
+  name: demo-apps
   namespace: argocd
 spec:
   destination:
-    namespace: istio-ingress
+    namespace: demo-apps
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: kubernetes/prod-cluster/infra/argocd/argocd/networking
+    path: kubernetes/apps/demo/argo-apps
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: HEAD
   syncPolicy:
