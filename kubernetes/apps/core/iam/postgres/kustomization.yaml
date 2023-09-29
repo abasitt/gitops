@@ -11,6 +11,6 @@ helmCharts:
   - name: postgressql
     releaseName: postgressql
     namespace: iam
-    repo: https://charts.bitnami.com/bitnami
+    repo: oci://registry-1.docker.io/bitnamicharts
     version: 12.12.10
     valuesFile: values.yaml
