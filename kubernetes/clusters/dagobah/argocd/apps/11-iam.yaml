@@ -12,8 +12,6 @@ spec:
     path: kubernetes/apps/core/iam
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: HEAD
-    directory:
-      recurse: false
   syncPolicy:
     automated: {}
     syncOptions:
