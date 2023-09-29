@@ -8,9 +8,9 @@ resources:
   - db-pvc.yaml
 
 helmCharts:
-  - name: bitnami
+  - name: postgres
     releaseName: postgres
     namespace: iam
-    repo: https://charts.bitnami.com/bitnami
+    repo: https://charts.bitnami.com
     version: 12.12.10
     valuesFile: values.yaml
