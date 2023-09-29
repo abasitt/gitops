@@ -39,7 +39,7 @@ proxy:
   enabled: false #defined as envar
   # java opts for jgroups required for infinispan distributed cache when using the kubernetes stack.
   # https://www.keycloak.org/server/caching
-extraEnv: |-
+extraEnv: |
   - name: TZ
     value: "Asia/Singapore"
   - name: JAVA_OPTS_APPEND
