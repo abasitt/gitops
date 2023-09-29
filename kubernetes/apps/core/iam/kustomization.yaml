@@ -8,3 +8,6 @@ resources:
   - namespace.yaml
 #  - keycloak/kustomization.yaml
 #  - postgres/kustomization.yaml
+components:
+  - keycloak
+  - postgres
