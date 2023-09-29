@@ -6,4 +6,4 @@ metadata:
 
 resources:
   - namespace.yaml
-  - 01-postgress-app.yaml
+  - 01-postgres-app.yaml
