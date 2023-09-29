@@ -1,0 +1,26 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: iam-gateway
+  namespace: iam
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: keycloak # must be the same as secret
+    hosts:
+    - "id.dagobah.abasitt.tech"
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "id.dagobah.abasitt.tech"
+  #  tls:
+  #    httpsRedirect: true

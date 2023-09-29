@@ -1,0 +1,17 @@
+global:
+  postgresql:
+    auth:
+      existingSecret: postgres-creds
+      # database: iam
+image:
+  registry: docker.io
+  repository: bitnami/postgresql
+  tag: "15.4.0"
+primary:
+  persistence:
+    enabled: true
+    existingClaim: postgresql-data
+metrics:
+  enabled: false
+  serviceMonitor:
+    enabled: false
