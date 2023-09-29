@@ -143,14 +143,14 @@ extraEnv: |
   #     truststore.jks: |-
   #       {{ .Files.Get "resources/truststore.jks" | b64enc }}
 
-extraVolumes: |
-  - name: objectstore
-    emptyDir:
-      sizeLimit: 100Mi
-  - name: quarkusproperties
-    secret:
-      secretName: keycloak-quarkusproperties
-      defaultMode: 0777
+#extraVolumes: |
+#  - name: objectstore
+#    emptyDir:
+#      sizeLimit: 100Mi
+#  - name: quarkusproperties
+#    secret:
+#      secretName: keycloak-quarkusproperties
+#      defaultMode: 0777
 
 # # - name: customreg
 # #   secret:
@@ -165,12 +165,12 @@ extraVolumes: |
 # #     secretName: {{ include "keycloak.fullname" . }}-truststore
 # # - name: custom-theme
 # #   emptyDir: {}
-extraVolumeMounts: |
-  - mountPath: /ObjectStore
-    name: objectstore
-  - name: quarkusproperties
-    mountPath: /opt/keycloak/conf/quarkus.properties
-    subPath: quarkus.properties
+#extraVolumeMounts: |
+#  - mountPath: /ObjectStore
+#    name: objectstore
+#  - name: quarkusproperties
+#    mountPath: /opt/keycloak/conf/quarkus.properties
+#    subPath: quarkus.properties
 
 # # - name: customreg
 # #   mountPath: /opt/keycloak/conf/customreg.yaml
