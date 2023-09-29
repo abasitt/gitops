@@ -47,7 +47,7 @@ proxy:
   enabled: false #defined as envar
   # java opts for jgroups required for infinispan distributed cache when using the kubernetes stack.
   # https://www.keycloak.org/server/caching
-extraEnv: |-
+extraEnv: |
   - name: TZ
     value: "Asia/Singapore"
   - name: JAVA_OPTS_APPEND
@@ -115,7 +115,7 @@ extraEnv: |-
 secrets:
   quarkusproperties:
     stringData:
-      quarkus.properties: |-
+      quarkus.properties: |
         # Could use the above envar, but lets use the quarkus conf file
         quarkus.transaction-manager.enable-recovery=true
         # quarkus.http.non-application-root-path=/
@@ -146,7 +146,7 @@ secrets:
   #     truststore.jks: |-
   #       {{ .Files.Get "resources/truststore.jks" | b64enc }}
 
-extraVolumes: |-
+extraVolumes: |
   - name: objectstore
     emptyDir:
       sizeLimit: 100Mi
@@ -168,7 +168,7 @@ extraVolumes: |-
 # #     secretName: {{ include "keycloak.fullname" . }}-truststore
 # # - name: custom-theme
 # #   emptyDir: {}
-extraVolumeMounts: |-
+extraVolumeMounts: |
   - mountPath: /ObjectStore
     name: objectstore
   - name: quarkusproperties
