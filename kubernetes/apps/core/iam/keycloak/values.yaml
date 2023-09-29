@@ -192,12 +192,11 @@ extraEnv: |
 
 ingress:
   enabled: false
-
-podSecurityContext:
-  fsGroup: 1000
-securityContext:
-  runAsUser: 1000
-  runAsNonRoot: true
-  capabilities:
-    drop:
-      - ALL
+#podSecurityContext:
+#  fsGroup: 1000
+#securityContext:
+#  runAsUser: 1000
+#  runAsNonRoot: true
+#  capabilities:
+#    drop:
+#      - ALL
