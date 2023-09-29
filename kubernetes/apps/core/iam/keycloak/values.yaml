@@ -30,10 +30,10 @@ postgresql:
 dbchecker:
   enabled: true
 database:
-  #vendor: "postgres"
+  vendor: "postgres"
   hostname: "postgresql.iam.svc.cluster.local"
-  #port: 5432
-  #database: iam
+  port: 5432
+  database: iam
 
 # Keeps keycloak paths the same as legacy
 http:
