@@ -30,12 +30,10 @@ postgresql:
 dbchecker:
   enabled: true
 database:
-  vendor: postgres
-  hostname: "${KC_DB_URL_HOST}"
-  port: 5432
-  username: "${KC_DB_USERNAME}"
-  password: "${KC_DB_PASSWORD}"
-  database: iam
+  #vendor: "postgres"
+  hostname: "postgresql.iam.svc.cluster.local"
+  #port: 5432
+  #database: iam
 
 # Keeps keycloak paths the same as legacy
 http:
@@ -47,7 +45,7 @@ proxy:
   enabled: false #defined as envar
   # java opts for jgroups required for infinispan distributed cache when using the kubernetes stack.
   # https://www.keycloak.org/server/caching
-extraEnv: |-
+extraEnv: |
   - name: TZ
     value: "Asia/Singapore"
   - name: JAVA_OPTS_APPEND
@@ -73,10 +71,10 @@ extraEnv: |-
         name: keycloak-creds
         key: kc-password
   - name: KC_DB_USERNAME
-    valueFrom:
-      secretKeyRef:
-        name: keycloak-creds
-        key: db-user
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-creds
+          key: db-user
   - name: KC_DB_PASSWORD
     valueFrom:
       secretKeyRef:
@@ -90,7 +88,6 @@ extraEnv: |-
     value: "5432"
   - name: KC_DB_URL_DATABASE
     value: iam
-
   #- name: KC_HOSTNAME_STRICT_HTTPS
   #  value: "true"
   # - name: QUARKUS_TRANSACTION_MANAGER_ENABLE_RECOVERY
