@@ -5,7 +5,7 @@ image:
 
 ## Overrides the default entrypoint of the Keycloak container
 command:
-  - "/opt/keycloak/bin/kc.sh"
+ - "/opt/keycloak/bin/kc.sh"
 
 ## Overrides the default args for the Keycloak container
 args:
@@ -18,6 +18,7 @@ resources:
 # limits:
 #   cpu: "500m"
 #   memory: "1024Mi"
+
 
 autoscaling:
   enabled: false
@@ -42,7 +43,6 @@ http:
 # metrics:
 #   enabled: true
 # https://www.keycloak.org/server/all-config
-
 proxy:
   enabled: false #defined as envar
   # java opts for jgroups required for infinispan distributed cache when using the kubernetes stack.
@@ -60,8 +60,6 @@ extraEnv: |-
     value: id.dagobah.abasitt.tech
   - name: KC_HOSTNAME_STRICT
     value: "true"
-  # - name: KC_HOSTNAME_STRICT_HTTPS
-  #   value: "true"
   - name: KC_LOG_LEVEL
     value: "org.keycloak.events:DEBUG,org.infinispan:INFO,org.jgroups:INFO"
   - name: KEYCLOAK_ADMIN
@@ -93,6 +91,8 @@ extraEnv: |-
   - name: KC_DB_URL_DATABASE
     value: iam
 
+  #- name: KC_HOSTNAME_STRICT_HTTPS
+  #  value: "true"
   # - name: QUARKUS_TRANSACTION_MANAGER_ENABLE_RECOVERY
   #   value: "true"
   # - name: KC_CACHE_STACK
@@ -192,9 +192,10 @@ extraVolumeMounts: |-
 # #   mountPath: /opt/keycloak/providers/YOUR-CUSTOM-THEME-JAR-NAME.jar
 # #   subPath: YOUR-CUSTOM-THEME-JAR-NAME.jar
 
+
 ingress:
   enabled: false
-  
+
 podSecurityContext:
   fsGroup: 1000
 securityContext:
