@@ -20,9 +20,9 @@ resources:
 #   memory: "1024Mi"
 
 
-autoscaling:
-  enabled: false
-  minReplicas: 1
+#autoscaling:
+#  enabled: false
+#  minReplicas: 1
 
 postgresql:
   enabled: false
