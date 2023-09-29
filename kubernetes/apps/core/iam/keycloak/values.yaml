@@ -22,13 +22,13 @@ postgresql:
   enabled: false
 dbchecker:
   enabled: true
-#database:
-#  vendor: postgres
-#  hostname: "${KC_DB_URL_HOST}"
-#  port: 5432
-#  username: "${POSTGRES_IAM_USERNAME}"
-#  password: "${POSTGRES_IAM_PASSWORD}"
-#  database: iam
+database:
+  vendor: postgres
+  hostname: "${KC_DB_URL_HOST}"
+  port: 5432
+  username: "${KC_DB_USERNAME}"
+  password: "${KC_DB_PASSWORD}"
+  database: iam
 # Keeps keycloak paths the same as legacy
 http:
   relativePath: '/auth'
