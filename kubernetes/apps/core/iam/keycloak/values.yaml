@@ -2,12 +2,15 @@ fullnameOverride: keycloak
 image:
   repository: quay.io/keycloak/keycloak
   tag: 22.0.3
+
 ## Overrides the default entrypoint of the Keycloak container
 command:
   - "/opt/keycloak/bin/kc.sh"
+
 ## Overrides the default args for the Keycloak container
 args:
   - "start"
+
 resources:
   requests:
     cpu: "500m"
@@ -15,11 +18,14 @@ resources:
 # limits:
 #   cpu: "500m"
 #   memory: "1024Mi"
+
 autoscaling:
   enabled: false
   minReplicas: 1
+
 postgresql:
   enabled: false
+
 dbchecker:
   enabled: true
 database:
@@ -29,17 +35,19 @@ database:
   username: "${KC_DB_USERNAME}"
   password: "${KC_DB_PASSWORD}"
   database: iam
+
 # Keeps keycloak paths the same as legacy
 http:
   relativePath: '/auth'
 # metrics:
 #   enabled: true
 # https://www.keycloak.org/server/all-config
+
 proxy:
   enabled: false #defined as envar
   # java opts for jgroups required for infinispan distributed cache when using the kubernetes stack.
   # https://www.keycloak.org/server/caching
-extraEnv: |
+extraEnv: |-
   - name: TZ
     value: "Asia/Singapore"
   - name: JAVA_OPTS_APPEND
@@ -84,6 +92,7 @@ extraEnv: |
     value: "5432"
   - name: KC_DB_URL_DATABASE
     value: iam
+
   # - name: QUARKUS_TRANSACTION_MANAGER_ENABLE_RECOVERY
   #   value: "true"
   # - name: KC_CACHE_STACK
@@ -102,6 +111,7 @@ extraEnv: |
   #   value: password
   # - name: KC_HTTPS_CLIENT_AUTH
   #   value: request
+
 secrets:
   quarkusproperties:
     stringData:
@@ -109,6 +119,7 @@ secrets:
         # Could use the above envar, but lets use the quarkus conf file
         quarkus.transaction-manager.enable-recovery=true
         # quarkus.http.non-application-root-path=/
+
       # # custom redirects
       # quarkus.kc-routing.path-redirect./=/auth/realms/YOUR-REALM-NAME/account
       # quarkus.kc-routing.path-redirect./auth=/auth/realms/YOUR-REALM-NAME/account
@@ -134,6 +145,7 @@ secrets:
   #   data:
   #     truststore.jks: |-
   #       {{ .Files.Get "resources/truststore.jks" | b64enc }}
+
 extraVolumes: |-
   - name: objectstore
     emptyDir:
@@ -142,6 +154,7 @@ extraVolumes: |-
     secret:
       secretName: keycloak-quarkusproperties
       defaultMode: 0777
+
 # # - name: customreg
 # #   secret:
 # #     secretName: {{ include "keycloak.fullname" . }}-customreg
@@ -161,6 +174,7 @@ extraVolumeMounts: |-
   - name: quarkusproperties
     mountPath: /opt/keycloak/conf/quarkus.properties
     subPath: quarkus.properties
+
 # # - name: customreg
 # #   mountPath: /opt/keycloak/conf/customreg.yaml
 # #   subPath: customreg.yaml
@@ -177,8 +191,10 @@ extraVolumeMounts: |-
 # # - name: custom-theme
 # #   mountPath: /opt/keycloak/providers/YOUR-CUSTOM-THEME-JAR-NAME.jar
 # #   subPath: YOUR-CUSTOM-THEME-JAR-NAME.jar
+
 ingress:
   enabled: false
+  
 podSecurityContext:
   fsGroup: 1000
 securityContext:
