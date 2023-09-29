@@ -2,13 +2,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-resources:
-  - virtualservice.yaml
+#resources:
+#  - virtualservice.yaml
 
 helmCharts:
-  - name: grafana
-    releaseName: grafana
-    namespace: observability
-    repo: https://grafana.github.io/helm-charts
-    version: 6.59.4
+  - name: keycloakx
+    releaseName: keycloakx
+    namespace: iam
+    repo: https://codecentric.github.io/helm-charts
+    version: 2.2.2
     valuesFile: values.yaml
