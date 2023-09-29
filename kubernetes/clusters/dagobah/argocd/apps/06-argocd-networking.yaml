@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: kubernetes/cluster/dagobah/argocd/argocd/networking
+    path: kubernetes/clusters/dagobah/argocd/argocd/networking
     repoURL: https://github.com/abasitt/gitops.git
     targetRevision: HEAD
   syncPolicy:
