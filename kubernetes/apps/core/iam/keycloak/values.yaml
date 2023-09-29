@@ -109,13 +109,13 @@ extraEnv: |
   # - name: KC_HTTPS_CLIENT_AUTH
   #   value: request
 
-secrets:
-  quarkusproperties:
-    stringData:
-      quarkus.properties: |
-        # Could use the above envar, but lets use the quarkus conf file
-        quarkus.transaction-manager.enable-recovery=true
-        # quarkus.http.non-application-root-path=/
+#secrets:
+#  quarkusproperties:
+#    stringData:
+#      quarkus.properties: |
+#        # Could use the above envar, but lets use the quarkus conf file
+#        quarkus.transaction-manager.enable-recovery=true
+#        # quarkus.http.non-application-root-path=/
 
       # # custom redirects
       # quarkus.kc-routing.path-redirect./=/auth/realms/YOUR-REALM-NAME/account
