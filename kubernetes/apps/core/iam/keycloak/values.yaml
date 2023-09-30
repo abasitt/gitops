@@ -66,22 +66,22 @@ extraEnv: |
   - name: KEYCLOAK_ADMIN
     valueFrom:
       secretKeyRef:
-        name: keycloak-creds
+        name: keycloak-secret
         key: kc-user
   - name: KEYCLOAK_ADMIN_PASSWORD
     valueFrom:
       secretKeyRef:
-        name: keycloak-creds
+        name: keycloak-secret
         key: kc-password
   #- name: KC_DB_USERNAME
   #    valueFrom:
   #      secretKeyRef:
-  #        name: keycloak-creds
+  #        name: keycloak-secret
   #        key: db-user
   #- name: KC_DB_PASSWORD
   #  valueFrom:
   #    secretKeyRef:
-  #      name: keycloak-creds
+  #      name: keycloak-secret
   #      key: db-password
   #- name: KC_DB_URL_HOST
   #  value: "postgresql.iam.svc.cluster.local"
