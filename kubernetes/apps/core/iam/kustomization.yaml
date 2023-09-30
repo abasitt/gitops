@@ -6,5 +6,5 @@ metadata:
 
 resources:
   - namespace.yaml
-  - 01-postgres-app.yaml
-  - 02-keycloak-app.yaml
+  - postgres
+  - keycloak
