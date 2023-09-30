@@ -34,8 +34,8 @@ database:
   hostname: "postgresql.iam.svc.cluster.local"
   port: 5432
   database: "iam"
-  user: "postgres"
-  existingSecret: "postgres-creds"
+  username: "postgres"
+  existingSecret: "keycloak-creds"
 
 # Keeps keycloak paths the same as legacy
 http:
