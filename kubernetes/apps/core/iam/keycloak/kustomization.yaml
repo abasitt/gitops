@@ -6,7 +6,7 @@ metadata:
 
 resources:
   - certificate-prd.yaml
-#  - virtualservice.yaml
+  - virtualservice.yaml
 
 helmCharts:
   - name: keycloakx
