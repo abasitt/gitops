@@ -1,8 +1,8 @@
 global:
   postgresql:
     auth:
-      existingSecret: postgres-creds
-      # database: iam
+      existingSecret: "postgres-creds"
+      database: "iam"
 image:
   registry: docker.io
   repository: bitnami/postgresql

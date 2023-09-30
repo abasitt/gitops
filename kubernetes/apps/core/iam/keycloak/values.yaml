@@ -36,6 +36,7 @@ database:
   database: "iam"
   username: "postgres"
   existingSecret: "keycloak-creds"
+  existingSecretKey: "db-password"
 
 # Keeps keycloak paths the same as legacy
 http:
