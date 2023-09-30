@@ -35,7 +35,7 @@ database:
   port: 5432
   database: "iam"
   username: "postgres"
-  existingSecret: "keycloak-creds"
+  existingSecret: "keycloak-secret"
   existingSecretKey: "db-password"
 
 # Keeps keycloak paths the same as legacy
