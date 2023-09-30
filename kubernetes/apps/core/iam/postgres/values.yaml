@@ -5,7 +5,7 @@ global:
       #database: "iam"
       secretKeys:
         adminPasswordKey: postgres-password
-        userPasswordKey: db-user
+        userPasswordKey: db-username
         replicationPasswordKey: db-password
         databaseKey: database
 image:
