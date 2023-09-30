@@ -20,9 +20,9 @@ resources:
 #   memory: "1024Mi"
 
 
-#autoscaling:
-#  enabled: false
-#  minReplicas: 1
+autoscaling:
+  enabled: false
+  minReplicas: 1
 
 postgresql:
   enabled: false
@@ -57,7 +57,7 @@ extraEnv: |
   - name: KC_HTTP_ENABLED
     value: "true"
   - name: KC_HOSTNAME
-    value: id.dagobah.abasitt.tech
+    value: auth.dagobah.abasitt.tech
   - name: KC_HOSTNAME_STRICT
     value: "true"
   - name: KC_LOG_LEVEL
@@ -111,13 +111,13 @@ extraEnv: |
   # - name: KC_HTTPS_CLIENT_AUTH
   #   value: request
 
-#secrets:
-#  quarkusproperties:
-#    stringData:
-#      quarkus.properties: |
-#        # Could use the above envar, but lets use the quarkus conf file
-#        quarkus.transaction-manager.enable-recovery=true
-#        # quarkus.http.non-application-root-path=/
+secrets:
+  quarkusproperties:
+    stringData:
+      quarkus.properties: |
+        # Could use the above envar, but lets use the quarkus conf file
+        quarkus.transaction-manager.enable-recovery=true
+        # quarkus.http.non-application-root-path=/
 
       # # custom redirects
       # quarkus.kc-routing.path-redirect./=/auth/realms/YOUR-REALM-NAME/account
@@ -145,14 +145,14 @@ extraEnv: |
   #     truststore.jks: |-
   #       {{ .Files.Get "resources/truststore.jks" | b64enc }}
 
-#extraVolumes: |
-#  - name: objectstore
-#    emptyDir:
-#      sizeLimit: 100Mi
-#  - name: quarkusproperties
-#    secret:
-#      secretName: keycloak-quarkusproperties
-#      defaultMode: 0777
+extraVolumes: |
+  - name: objectstore
+    emptyDir:
+      sizeLimit: 100Mi
+  - name: quarkusproperties
+    secret:
+      secretName: keycloak-quarkusproperties
+      defaultMode: 0777
 
 # # - name: customreg
 # #   secret:
@@ -167,12 +167,12 @@ extraEnv: |
 # #     secretName: {{ include "keycloak.fullname" . }}-truststore
 # # - name: custom-theme
 # #   emptyDir: {}
-#extraVolumeMounts: |
-#  - mountPath: /ObjectStore
-#    name: objectstore
-#  - name: quarkusproperties
-#    mountPath: /opt/keycloak/conf/quarkus.properties
-#    subPath: quarkus.properties
+extraVolumeMounts: |
+  - mountPath: /ObjectStore
+    name: objectstore
+  - name: quarkusproperties
+    mountPath: /opt/keycloak/conf/quarkus.properties
+    subPath: quarkus.properties
 
 # # - name: customreg
 # #   mountPath: /opt/keycloak/conf/customreg.yaml
@@ -194,11 +194,11 @@ extraEnv: |
 
 ingress:
   enabled: false
-#podSecurityContext:
-#  fsGroup: 1000
-#securityContext:
-#  runAsUser: 1000
-#  runAsNonRoot: true
-#  capabilities:
-#    drop:
-#      - ALL
+podSecurityContext:
+  fsGroup: 1000
+securityContext:
+  runAsUser: 1000
+  runAsNonRoot: true
+  capabilities:
+    drop:
+      - ALL
