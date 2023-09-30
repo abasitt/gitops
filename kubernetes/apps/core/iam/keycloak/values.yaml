@@ -34,7 +34,7 @@ database:
   hostname: "postgresql.iam.svc.cluster.local"
   port: 5432
   database: "iam"
-  username: "postgres"
+  username: "keycloak"
   existingSecret: "keycloak-secret"
   existingSecretKey: "db-password"
 
