@@ -1,13 +1,9 @@
 global:
   postgresql:
     auth:
+      username: keycloak
+      database: iam
       existingSecret: postgres-secret
-      #database: "iam"
-      secretKeys:
-        adminPasswordKey: postgres-password
-        userPasswordKey: db-username
-        replicationPasswordKey: db-password
-        databaseKey: database
 image:
   registry: docker.io
   repository: bitnami/postgresql
