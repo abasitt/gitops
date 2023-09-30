@@ -15,12 +15,12 @@ spec:
       mode: SIMPLE
       credentialName: keycloak # must be the same as secret
     hosts:
-    - "id.dagobah.abasitt.tech"
+    - "auth.dagobah.abasitt.tech"
   - port:
       number: 80
       name: http
       protocol: HTTP
     hosts:
-    - "id.dagobah.abasitt.tech"
+    - "auth.dagobah.abasitt.tech"
   #  tls:
   #    httpsRedirect: true

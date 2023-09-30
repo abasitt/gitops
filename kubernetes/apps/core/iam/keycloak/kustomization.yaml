@@ -4,7 +4,8 @@ kind: Kustomization
 metadata:
   name: keycloak
 
-#resources:
+resources:
+  - certificate-prd.yaml
 #  - virtualservice.yaml
 
 helmCharts:
