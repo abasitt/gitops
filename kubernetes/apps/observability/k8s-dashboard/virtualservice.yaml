@@ -15,8 +15,7 @@ spec:
   gateways:
   - observability-gateway
   tls:
-  - name: "dashboard-routes"
-    match:
+  - match:
     - port: 443
       sniHosts:
       - "dashboard.dagobah.internal"
