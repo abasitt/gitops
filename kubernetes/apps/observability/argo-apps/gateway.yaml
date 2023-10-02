@@ -42,9 +42,9 @@ spec:
     hosts:
     - "kiali.dagobah.internal"
   - port:
-      number: 80
-      name: http-dashboard
-      protocol: HTTP
+      number: 443
+      name: https-dashboard
+      protocol: HTTPS
     hosts:
     - "dashboard.dagobah.internal"
 #  - port:
