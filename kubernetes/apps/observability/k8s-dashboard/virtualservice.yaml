@@ -4,17 +4,18 @@ kind: VirtualService
 metadata:
   name: dashboard-vs
   namespace: observability
+  annotations:
+    hajimari.io/enable: "true"
+    hajimari.io/icon: logos:kubernetes
+    hajimari.io/info: Kubernetes dashboard
+    hajimari.io/group: admin
 spec:
   hosts:
   - "dashboard.dagobah.internal"
   gateways:
   - observability-gateway
-  tls:
+  http:
   - name: "dashboard-routes"
-    match:
-    - port: 443
-      sniHosts:
-      - "dashboard.dagobah.internal"
     route:
     - destination:
         host: kubernetes-dashboard.observability.svc.cluster.local
