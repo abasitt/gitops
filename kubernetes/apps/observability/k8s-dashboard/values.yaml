@@ -8,6 +8,9 @@ extraArgs:
   # When enabled, Dashboard login view will also be shown when Dashboard is not served over HTTPS.
   - --enable-insecure-login
   - --token-ttl=43200
+rbac:  
+  clusterReadOnlyRole: true
+  clusterAdminRole: false
 ingress:
   enabled: false
 metricsScraper:
