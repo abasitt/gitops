@@ -1,0 +1,22 @@
+env:
+  TZ: "Asia/Singapore"
+extraArgs:
+  # When enabled, the skip button on the login page will be shown.
+  - --enable-skip-login
+  # When enabled, Dashboard settings page will not require user to be logged in and authorized to access settings page.
+  - --disable-settings-authorizer
+  # When enabled, Dashboard login view will also be shown when Dashboard is not served over HTTPS.
+  - --enable-insecure-login
+  - --token-ttl=43200
+ingress:
+  enabled: false
+metricsScraper:
+  enabled: true
+serviceMonitor:
+  enabled: false
+cert-manager:
+  installCRDs: false
+nginx:
+  enabled: false
+metrics-server:
+  enabled: false  # installed separately

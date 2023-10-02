@@ -1,0 +1,19 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: dashboard-vs
+  namespace: observability
+spec:
+  hosts:
+  - "dashboard.dagobah.internal"
+  gateways:
+  - observability-gateway
+  http:
+  - name: "dashboard-routes"
+    route:
+    - destination:
+        host: jaeger-query.observability.svc.cluster.local
+        port:
+          number: 16686
+---
