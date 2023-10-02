@@ -10,5 +10,5 @@ helmCharts:
     releaseName: kubernetes-dashboard
     namespace: observability
     repo: https://kubernetes.github.io/dashboard/
-    version: 7.0.3
+    version: 6.0.8
     valuesFile: values.yaml
