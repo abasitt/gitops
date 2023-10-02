@@ -47,6 +47,8 @@ spec:
       protocol: HTTPS
     hosts:
     - "dashboard.dagobah.internal"
+    tls:
+      mode: PASSTHROUGH
 #  - port:
 #      number: 443
 #      name: https-temp
