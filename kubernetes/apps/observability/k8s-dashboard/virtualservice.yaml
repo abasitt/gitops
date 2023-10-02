@@ -13,7 +13,7 @@ spec:
   - name: "dashboard-routes"
     route:
     - destination:
-        host: jaeger-query.observability.svc.cluster.local
+        host: kubernetes-dashboard.observability.svc.cluster.local
         port:
-          number: 16686
+          number: 443
 ---
