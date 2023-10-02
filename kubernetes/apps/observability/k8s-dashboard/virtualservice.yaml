@@ -9,8 +9,12 @@ spec:
   - "dashboard.dagobah.internal"
   gateways:
   - observability-gateway
-  http:
+  tls:
   - name: "dashboard-routes"
+    match:
+    - port: 443
+      sniHosts:
+      - "dashboard.dagobah.internal"
     route:
     - destination:
         host: kubernetes-dashboard.observability.svc.cluster.local
