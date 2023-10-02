@@ -16,4 +16,3 @@ spec:
         host: kubernetes-dashboard.observability.svc.cluster.local
         port:
           number: 443
----

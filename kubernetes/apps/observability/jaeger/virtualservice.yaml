@@ -16,4 +16,3 @@ spec:
         host: jaeger-query.observability.svc.cluster.local
         port:
           number: 16686
----
