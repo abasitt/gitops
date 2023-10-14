@@ -10,6 +10,13 @@ data:
        clusters:
          - "*"
   kustomize.buildOptions: --enable-alpha-plugins --enable-helm
+  url: https://argocd.abasitt.tech
+  oidc.config: |
+    name: Keycloak
+    issuer: https://auth.dagobah.abasitt.tech/realms/home-prod
+    clientID: argocd
+    clientSecret: $oidc.keycloak.clientSecret
+    requestedScopes: ["openid", "profile", "email", "groups"]
 metadata:
   labels:
     app.kubernetes.io/name: argocd-cm
