@@ -13,7 +13,7 @@ data:
   url: https://argocd.abasitt.tech
   oidc.config: |
     name: Keycloak
-    issuer: https://auth.dagobah.abasitt.tech/realms/home-prod
+    issuer: https://auth.dagobah.abasitt.tech/auth/realms/home-prod
     clientID: argocd
     clientSecret: $oidc.keycloak.clientSecret
     requestedScopes: ["openid", "profile", "email", "groups"]
