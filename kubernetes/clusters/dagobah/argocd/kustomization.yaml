@@ -8,7 +8,7 @@ resources:
 - apps/04-media.yaml
 - apps/05-homeassistant.yaml
 - argocd
-- apps/06-argocd-networking.yaml
+#- apps/06-argocd-networking.yaml
 - apps/07-cilium.yaml
 - apps/08-securityapps.yaml
 #- apps/09-demo-apps.yaml #removing demo-apps for now
