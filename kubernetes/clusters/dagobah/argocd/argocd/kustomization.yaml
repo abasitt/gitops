@@ -9,3 +9,4 @@ resources:
 patchesStrategicMerge:
 - overlays/argocd-cm-patch.yaml
 - overlays/argocd-cmd-params-patch.yaml
+- overlays/argocd-cm-rbac-patch.yaml
