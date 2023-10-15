@@ -21,7 +21,8 @@ external_services:
 # oidc settings
 auth:
   openid:
-    client_id: "kiali-client"
+    #name: Keycloak
+    client_id: "kiali"
     disable_rbac: true
-    issuer_uri: "https://openid.issuer.com"
+    issuer_uri: "https://auth.dagobah.abasitt.tech/auth/realms/home-prod"
   strategy: openid
