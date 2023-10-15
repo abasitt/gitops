@@ -22,7 +22,7 @@ external_services:
 auth:
   openid:
     #name: Keycloak
-    client_id: "kiali"
+    client_id: kiali
     disable_rbac: true
-    issuer_uri: "https://auth.dagobah.abasitt.tech/auth/realms/home-prod"
+    issuer_uri: https://auth.dagobah.abasitt.tech/auth/realms/home-prod
   strategy: openid
