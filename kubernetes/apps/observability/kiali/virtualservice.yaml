@@ -10,6 +10,11 @@ spec:
   gateways:
   - observability-gateway
   http:
+  - name: kiali-openid-redirect
+    headers:
+      request:
+        set:
+          X-Forwarded-Port: "80"
   - name: "kiali-routes"
     route:
     - destination:
