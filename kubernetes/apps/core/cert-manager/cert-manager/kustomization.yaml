@@ -4,16 +4,16 @@ kind: Kustomization
 
 resources:
   - ./namespace.yaml
-#  - ./prometheusrule.yaml
-# configMapGenerator:
-#   - name: cert-manager-dashboard
-#     namespace: cert-manager
-#     files:
-#       - cert-manager-dashboard.json=https://raw.githubusercontent.com/monitoring-mixins/website/master/assets/cert-manager/dashboards/cert-manager.json
-# generatorOptions:
-#   disableNameSuffixHash: true
-#   labels:
-#     grafana_dashboard: "true"
+  - ./prometheusrule.yaml
+configMapGenerator:
+  - name: cert-manager-dashboard
+    namespace: cert-manager
+    files:
+      - cert-manager-dashboard.json=https://raw.githubusercontent.com/monitoring-mixins/website/master/assets/cert-manager/dashboards/cert-manager.json
+generatorOptions:
+  disableNameSuffixHash: true
+  labels:
+    grafana_dashboard: "true"
 helmCharts:
   - name: cert-manager
     releaseName: cert-manager
