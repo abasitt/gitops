@@ -10,7 +10,7 @@ helmCharts:
     releaseName: istio-internalgateway
     namespace: istio-internalgw
     repo: https://istio-release.storage.googleapis.com/charts
-    version: 1.18.2
+    version: 1.19.3
     valuesFile: values.yaml
 
 patchesStrategicMerge:
