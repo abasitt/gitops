@@ -6,4 +6,4 @@ metadata:
       type: third-party
       facing: internal
       istio-discovery: enabled
-      istio-injection: enabled
+      #istio-injection: enabled
