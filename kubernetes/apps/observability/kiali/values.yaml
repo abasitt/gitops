@@ -18,3 +18,10 @@ external_services:
     in_cluster_url: 'http://grafana.observability.svc.cluster.local/'
     # Public facing URL of Grafana
     url: 'http://grafana.dagobah.internal/grafana'
+# oidc settings
+auth:
+  openid:
+    client_id: "kiali-client"
+    disable_rbac: true
+    issuer_uri: "https://openid.issuer.com"
+  strategy: openid

@@ -10,7 +10,8 @@ spec:
   gateways:
   - iam-gateway
   http:
-  - match:
+  - name: https-redirect
+    match:
       - scheme:
           exact: http
         uri:
@@ -21,9 +22,19 @@ spec:
     redirect:
       scheme: https
       redirectCode: 302 # 302 to not mess with risky permanent redirections since a workaround
+  - name: auth-redirect
+    match:
+    - uri:
+        exact: /
+    redirect:
+      uri: /auth 
   - name: "keycloak-routes"
+    match:
+    - uri:
+        prefix: "/auth"
     route:
     - destination:
-        host: keycloak-http
+        host: keycloak-http.iam.svc.cluster.local
         port:
           number: 80
+      weight: 100
