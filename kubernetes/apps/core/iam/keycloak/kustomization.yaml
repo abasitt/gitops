@@ -13,5 +13,5 @@ helmCharts:
     releaseName: keycloakx
     namespace: iam
     repo: https://codecentric.github.io/helm-charts
-    version: 2.2.2
+    version: 2.3.0
     valuesFile: values.yaml
