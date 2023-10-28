@@ -1,7 +1,7 @@
 fullnameOverride: keycloak
 image:
   repository: quay.io/keycloak/keycloak
-  tag: 22.0.4
+  tag: 22.0.5
 
 ## Overrides the default entrypoint of the Keycloak container
 command:
