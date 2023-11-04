@@ -11,5 +11,5 @@ helmCharts:
     releaseName: kiali-server
     namespace: observability
     repo: https://kiali.org/helm-charts
-    version: 1.75.0
+    version: 1.76.0
     valuesFile: values.yaml
