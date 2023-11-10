@@ -1,6 +1,21 @@
 autoscaling:
   minReplicas: 1
   maxReplicas: 1
+
+securityContext:
+  fsGroup: 1337
+  runAsGroup: 1337
+  runAsNonRoot: true
+  runAsUser: 1337
+containerSecurityContext:
+  capabilities:
+    drop:
+    - ALL
+  allowPrivilegeEscalation: false
+  privileged: false
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+
 service:
   annotations:
     metallb.universe.tf/loadBalancerIPs: 192.168.30.126
