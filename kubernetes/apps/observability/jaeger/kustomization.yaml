@@ -10,5 +10,5 @@ helmCharts:
     releaseName: jaeger
     namespace: observability
     repo: https://jaegertracing.github.io/helm-charts
-    version: 0.71.17
+    version: 0.72.0
     valuesFile: values.yaml
