@@ -10,5 +10,5 @@ helmCharts:
     releaseName: grafana
     namespace: observability
     repo: https://grafana.github.io/helm-charts
-    version: 6.60.6
+    version: 7.0.6
     valuesFile: values.yaml
