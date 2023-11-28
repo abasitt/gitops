@@ -1,0 +1,30 @@
+apiVersion: networking.istio.io/v1beta1                                                                                                                                                     
+kind: ServiceEntry                                                                                                                                                                          
+metadata:                                                                                                                                                                                   
+  name: books-se                                                                                                                                                                            
+spec:                                                                                                                                                                                       
+  hosts:                                                                                                                                                                                    
+  - books.abasitt.tech                                                                                                                                                                      
+  location: MESH_EXTERNAL                                                                                                                                                                   
+  ports:                                                                                                                                                                                    
+  - number: 443                                                                                                                                                                             
+    name: https                                                                                                                                                                             
+    protocol: TLS                                                                                                                                                                           
+  resolution: NONE
+  ---
+apiVersion: networking.istio.io/v1beta1                                                                                                                                                     
+kind: VirtualService                                                                                                                                                                        
+metadata:                                                                                                                                                                                   
+  name: book-route                                                                                                                                                                          
+spec:                                                                                                                                                                                       
+  hosts:                                                                                                                                                                                    
+  - books.abasitt.tech                                                                                                                                                                      
+  gateways:                                                                                                                                                                                 
+  - mesh                                                                                                                                                                                    
+  tls:                                                                                                                                                                                      
+  - match:                                                                                                                                                                                  
+    - sniHosts:                                                                                                                                                                             
+      - books.abasitt.tech                                                                                                                                                                  
+    route:                                                                                                                                                                                  
+    - destination:                                                                                                                                                                          
+        host: istio-ingressgateway.istio-ingress.svc.cluster.local 
